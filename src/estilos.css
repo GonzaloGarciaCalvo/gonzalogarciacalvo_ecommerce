@@ -1,0 +1,33 @@
+* {
+    margin : 0;
+    padding : 0;
+    box-sizing: border-box;
+}
+
+html , body , #root {
+    height: 100vh;
+}
+
+a {
+    text-decoration: none;
+    padding: 0.7em 3em 0em 3em;
+    font-size:1.5em;
+    color: rgb(71, 71, 71);
+    text-align: center;
+}
+.titulo {
+    width: 30%;
+    padding: 0.3em 0 0 2em;
+}
+.boxHeather {
+    display: flex;
+    flex-direction: row;
+    height: 3em;
+}
+.barraNav{
+    margin-top: 0em;
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
