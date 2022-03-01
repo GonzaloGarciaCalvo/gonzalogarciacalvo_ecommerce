@@ -17,12 +17,14 @@ a {
 }
 .titulo {
     width: 30%;
-    padding: 0.3em 0 0 2em;
+    padding: 0.1em 0 0 2em;
+    font-size: 2em;
 }
 .boxHeather {
     display: flex;
     flex-direction: row;
-    height: 3em;
+    /* height: 3em; */
+    background-color: #f8f9fa;
 }
 .barraNav{
     margin-top: 0em;
@@ -30,4 +32,11 @@ a {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+}
+.etiquetaAcarrito {
+    padding-top: 0;
+}
+.cartIcon {
+    width: 1.5em;
+    height: 1.5em;
 }
