@@ -11,7 +11,7 @@ function App() {
     return (
         <>
             <NavBar />
-            <ItemListContainer greeting="Hola, ecommerce en construcción!, prueba a ver si cambia"/>
+            <ItemListContainer greeting="Hola, ecommerce en construcción!"/>
         </>
     )
 }

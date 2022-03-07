@@ -12,11 +12,11 @@ const ItemCount  = (prop) => {
     const restarCantidad = () => {
          if (contador > 0) setContador(contador - 1) 
     }
-    const miOnAdd = () => {
-        console.log("agregado al carrito")
-    }
+    
     const agregarAlCarrito = () => {
-        if (contador <= prop.stock) {miOnAdd() }
+        if (contador <= prop.stock && contador > 0) {
+            prop.onAdd();
+        } 
     }
     
     return (
