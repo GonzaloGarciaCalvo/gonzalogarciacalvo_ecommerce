@@ -16,7 +16,7 @@ const ItemCount  = (prop) => {
         console.log("agregado al carrito")
     }
     const agregarAlCarrito = () => {
-        if (contador <= prop.stock) {miOnAdd()}
+        if (contador <= prop.stock) {miOnAdd() }
     }
     
     return (
