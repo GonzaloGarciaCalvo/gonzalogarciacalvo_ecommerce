@@ -40,3 +40,31 @@ a {
     width: 1.5em;
     height: 1.5em;
 }
+.listaDeProductos {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.item {
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid grey;
+    box-shadow: 0 0 6px 0  grey;
+}
+.detalleItem {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid grey; */
+    box-shadow: 0 0 10px 4px  grey;
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+}
+.detalleItem__titulo {
+    font-size: 2rem;
+    
+}

@@ -15,7 +15,7 @@ const ItemCount  = ({stock, initial, onAdd}) => {
     
     const agregarAlCarrito = () => {
         if (contador <= stock && contador > 0) {
-            onAdd();
+            onAdd(contador);
         } 
     }
     
