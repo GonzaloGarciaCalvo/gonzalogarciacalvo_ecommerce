@@ -25,8 +25,8 @@ const ItemListContainer = (prop) =>{
 				} else {filtrado = productosIniciales};
 			
 				/* res(productosIniciales); */
-				
 				res(filtrado);
+				
 			}, 1000);
 		});
 		promesa
@@ -40,11 +40,9 @@ const ItemListContainer = (prop) =>{
 				setLoading(false);
 			});
 	},[id]);
-    
+
     return (
         <>
-           
-
             <h2 className='pt-5' >{prop.greeting}</h2>
             <p>{loading ? "Cargando..." : "Ya tenes los productos"}</p>
             <ItemList productos={productos} className="d-flex flex-row justify-content-center pb-5"/>

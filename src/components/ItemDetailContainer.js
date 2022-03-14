@@ -26,7 +26,7 @@ const ItemDetailContainer = (props) =>{
                 
 				
 				filtrado =productosIniciales.filter(el => el.item==id);
-                console.log("filtrado",  filtrado)
+                console.log("filtrado en getItem",  filtrado)
                 res(filtrado)
             },1000)
         })
@@ -46,8 +46,8 @@ const ItemDetailContainer = (props) =>{
         
     },[id])
     console.log("producto a la salida de useEffect IDC", producto)// SALE BIEN
-        console.log(producto.nombre)// SALE UNDEFINED
-        const salida = filtrado
+    console.log(producto.nombre)// SALE UNDEFINED
+    console.log("filtrado a la salida de useEffect IDC ",filtrado)
 return (
     <Container fluid as="div" className="d-flex flex-row justify-content-center pb-5" >
     { loading ? "":  <ItemDetail producto={producto} />}

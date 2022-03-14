@@ -16,7 +16,6 @@ const ItemDetail = ({producto}) =>{
     )
 }
 
-
 {/*  <ItemCount initial={1}  stock={5} onAdd={(value) => console.log(`se agregaron `, value ,`items al carrito`)} /> */}
 
 export default ItemDetail
