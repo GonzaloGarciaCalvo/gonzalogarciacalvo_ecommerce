@@ -1,7 +1,9 @@
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
+import { Link } from "react-router-dom";
 
 const Item = (prop) =>{
+    
     return (
        
         <Card className=" col-2 col-md-3 mx-2 item">
@@ -9,7 +11,7 @@ const Item = (prop) =>{
                 <Card.Img variant="top" src={prop.imagen} alt="foto producto"/> 
                 <Card.Title className='text-center'>{prop.nombre}</Card.Title>
                 <Card.Text >$ {prop.precio}</Card.Text>
-                <Button variant="secondary" size="sm" className=' d-flex flex-row justify-content-center'>Ver más</Button>
+                <Button as={Link} to={`/item/${prop.id}`} variant="secondary" size="sm" className=' d-flex flex-row justify-content-center'>Ver más</Button>
             </Card.Body>
         </Card>
     )
