@@ -3,7 +3,6 @@ import ItemCount from './ItemCount'
 
 const ItemDetail = ({producto}) =>{ 
      
-    console.log(`prop nombre de itemDetail.js =  ${producto.nombre}`)
     return (
         <Card as="article" className=" col-md-6  detalleItem mt-5">
             <Card.Body  className=' d-flex flex-column justify-content-center align-items-center px-1'>
