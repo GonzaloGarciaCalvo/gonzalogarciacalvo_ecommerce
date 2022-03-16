@@ -37,7 +37,7 @@ const ItemDetailContainer = (props) =>{
     },[id])
 
 return (
-    <Container fluid as="div" className="d-flex flex-row justify-content-center pb-5" >
+    <Container fluid as="section" className="d-flex flex-row justify-content-center pb-5" >
     { loading ? "":  <ItemDetail producto={producto} />}
     </Container> 
 )

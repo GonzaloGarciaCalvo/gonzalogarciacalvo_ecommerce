@@ -5,7 +5,7 @@ const ItemDetail = ({producto}) =>{
      
     console.log(`prop nombre de itemDetail.js =  ${producto.nombre}`)
     return (
-        <Card className=" col-md-6  detalleItem mt-5">
+        <Card as="article" className=" col-md-6  detalleItem mt-5">
             <Card.Body  className=' d-flex flex-column justify-content-center align-items-center px-1'>
                 <Card.Img variant="top" src={producto.imagen} alt="foto producto"/> 
                 <Card.Title className='text-center detalleItem__totulo'>
