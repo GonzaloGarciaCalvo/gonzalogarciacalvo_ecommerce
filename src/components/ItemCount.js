@@ -1,4 +1,7 @@
 import {useState} from 'react'
+import Button from 'react-bootstrap/Button'
+import { toast } from "react-toastify"
+import 'react-toastify/dist/ReactToastify.css';
 
 const ItemCount  = ({stock, initial, onAdd}) => {
     
@@ -10,22 +13,36 @@ const ItemCount  = ({stock, initial, onAdd}) => {
     }
 
     const restarCantidad = () => {
-         if (contador > 0) setContador(contador - 1) 
+         if (contador > 1) setContador(contador - 1) 
     }
     
     const agregarAlCarrito = () => {
         if (contador <= stock && contador > 0) {
             onAdd(contador);
+            toast.info('Agregado al carrito', {
+                position: "bottom-center",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                icon: false,
+                hideProgressBar: true,
+            });
         } 
     }
     
+    
     return (
-        <div>
-            <p>Mi contador actual : {contador}</p>
-            <button onClick={sumarCantidad} >Sumar cantidad</button>
-            <button onClick={restarCantidad} >Restar cantidad</button>
-            <p>Stock disponible: {stock - contador}</p>
-            <button onClick={agregarAlCarrito} >Agregar al carrito</button>
+        <div >
+            <p className='text-center'>Agregados : {contador}</p>
+            <div className='d-flex flex-direction-row justify-content-evenly'>
+            <Button variant="secondary" size="sm" onClick={sumarCantidad} className=" btnCounter"> + </Button>
+            <Button variant="secondary" size="sm" onClick={restarCantidad} className=" btnCounter" > - </Button>
+            </div>
+            <p className='text-center'>Stock disponible: {stock - contador}</p>
+            <Button variant="secondary" size="sm" onClick={agregarAlCarrito} className="mx-5 d-inline text-center" >Agregar al carrito</Button>
         </div>
             
             

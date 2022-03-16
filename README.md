@@ -68,3 +68,33 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+Aplicación creada con react-create-app
+se utiliza Webpack
+Librerías:
+React
+React-routrer-dom
+React-bootstrap
+React-tostify
+
+Se implementa un E-commerce de venta de remeras.
+Hay navegación a categoría hombre y categoría mujer
+De App se desperende:
+                    Rama de componentes ItemListContainer / ItemList/ Item
+                    Rama de componentes ItemDetailContainer / ItemDetail
+
+App
+   |components
+             |ItemListContainer 
+             |                 |ItemList
+             |                          |Item
+             |
+             |
+             |ItemDetailContainer
+                                |ItemDetail
+                                           |ItemCount
+             |
+             |NavBar
+                    |CartWidget
+
+             |Carrito
