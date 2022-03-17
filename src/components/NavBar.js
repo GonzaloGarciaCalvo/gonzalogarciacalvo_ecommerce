@@ -15,7 +15,7 @@ function NavBar() {
 							<Nav className="me-auto">
 								<NavLink to="category/1" className="mx-5">Hombre</NavLink>
 								<NavLink to="category/2" className="mx-5">Mujer</NavLink>
-								<NavLink to="/" className="mx-5">Ver todo</NavLink>
+								<NavLink to="/" className="mx-5 px-2">Ver todo</NavLink>
 								<CartWidget />
 							</Nav>
 						</Navbar.Collapse>

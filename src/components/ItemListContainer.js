@@ -52,7 +52,7 @@ const ItemListContainer = (prop) =>{
                                    <Spinner animation="border" role="status"> </Spinner>
 								   <p className="ms-4 mt-1">Cargando...</p>
 						    </div> : " "}
-				<h2 className="pt-5">{prop.greeting}</h2>
+				{/* <h2 className="pt-5">{prop.greeting}</h2> */}
 				<ItemList productos={productos} className="d-flex flex-row justify-content-center pb-5" />
 			</>
 	);

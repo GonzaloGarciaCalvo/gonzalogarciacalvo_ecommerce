@@ -19,9 +19,9 @@ const ItemCount  = ({stock, initial, onAdd}) => {
     const agregarAlCarrito = () => {
         if (contador <= stock && contador > 0) {
             onAdd(contador);
-            toast.info('Agregado al carrito', {
+            /* toast.info('', {
                 position: "bottom-center",
-                autoClose: 2000,
+                autoClose: 6000,
                 hideProgressBar: false,
                 closeOnClick: true,
                 pauseOnHover: true,
@@ -29,16 +29,17 @@ const ItemCount  = ({stock, initial, onAdd}) => {
                 progress: undefined,
                 icon: false,
                 hideProgressBar: true,
-            });
+            }); */
         } 
     }
     
     
     return (
         <div >
-            <p className='text-center'>Agregados : {contador}</p>
+            
             <div className='d-flex flex-direction-row justify-content-evenly'>
             <Button variant="secondary" size="sm" onClick={sumarCantidad} className=" btnCounter"> + </Button>
+            <p className='text-center'>Agregados : {contador}</p>
             <Button variant="secondary" size="sm" onClick={restarCantidad} className=" btnCounter" > - </Button>
             </div>
             <p className='text-center'>Stock disponible: {stock - contador}</p>
