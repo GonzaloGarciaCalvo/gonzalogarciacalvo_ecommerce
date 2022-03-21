@@ -47,7 +47,6 @@ a {
     justify-content: space-evenly;
 }
 .item {
-    
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -55,6 +54,9 @@ a {
     border: 1px solid grey;
     box-shadow: 0 0 6px 0  grey;
     margin-top: 2em;
+}
+.item2 {
+    width: 15em;
 }
 .detalleItem {
     display: flex;
@@ -72,5 +74,10 @@ a {
 }
 .btnCounter {
     width: 2em;
-    font-size: 1.3em;
+    font-size: 1.4em;
+    font-weight:800;
+    height: 1.4em;
+    line-height: 1.2em !important;
+    padding-top: 0em;
+    padding-bottom: 0.1em;
 }

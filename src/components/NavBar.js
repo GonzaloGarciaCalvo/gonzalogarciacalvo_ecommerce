@@ -6,7 +6,7 @@ import { Link , NavLink } from "react-router-dom";
 
 function NavBar() {
     return (
-			<heather className="boxHeather">
+			<header className="boxHeather">
 				<Navbar className="pt-4v w-100" collapseOnSelect expand="lg" bg="light" variant="light">
 					<Container fluid>
 						<Link as="Navbar.Brand" to="/" className="titulo " >Aventura Wear</Link>
@@ -21,7 +21,7 @@ function NavBar() {
 						</Navbar.Collapse>
 					</Container>
 				</Navbar>
-			</heather>
+			</header>
 		);
 }
 

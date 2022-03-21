@@ -4,6 +4,7 @@ import ItemDetailContainer from "./components/ItemDetailContainer"
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Cart from "./components/Cart"
 import { ToastContainer } from "react-toastify"
+import MiProvider from "./components/CartContext"
 
 
 
@@ -11,17 +12,19 @@ import { ToastContainer } from "react-toastify"
 function App() {
 
     return (
-        <BrowserRouter>
-            <NavBar />
-            <Routes>
-            <Route path="/" element={<ItemListContainer/>}/>
-            <Route path="/category/:id" element={<ItemListContainer/>}/>
-            <Route path="/cart" element={<Cart/>}/>
-            <Route path="/item/:id" element={<ItemDetailContainer/>}/>
-            </Routes>
-            <ToastContainer />
-        </BrowserRouter>
-    )
+			<MiProvider>
+				<BrowserRouter>
+					<NavBar />
+					<Routes>
+						<Route path="/" element={<ItemListContainer />} />
+						<Route path="/category/:id" element={<ItemListContainer />} />
+						<Route path="/cart" element={<Cart />} />
+						<Route path="/item/:id" element={<ItemDetailContainer />} />
+					</Routes>
+					<ToastContainer />
+				</BrowserRouter>
+			</MiProvider>
+		);
 }
 export default App
 

@@ -35,10 +35,10 @@ const ItemCount  = ({stock, initial, onAdd}) => {
     
     
     return (
-        <div >
+        <div>
             
             <div className='d-flex flex-direction-row justify-content-evenly'>
-            <Button variant="secondary" size="sm" onClick={sumarCantidad} className=" btnCounter"> + </Button>
+            <Button variant="secondary" size="sm" onClick={sumarCantidad} className=" btnCounter btn-sm"> + </Button>
             <p className='text-center'>Agregados : {contador}</p>
             <Button variant="secondary" size="sm" onClick={restarCantidad} className=" btnCounter" > - </Button>
             </div>
