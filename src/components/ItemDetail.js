@@ -11,13 +11,11 @@ const ItemDetail = ({producto}) =>{
     const [seleccionado, setSeleccionado] = useState(false)
     
     const onAdd = (value)=> {
-        if (value !== undefined) setSeleccionado(value)
-        
+        if (value !== undefined) setSeleccionado(value)   
     };
     const getCount = () => {
         addItem(producto, seleccionado)
-      }
-    
+    }
     
     return (
         <Card as="article" className=" col-md-6  detalleItem mt-5">
@@ -29,9 +27,6 @@ const ItemDetail = ({producto}) =>{
                 <Card.Text >$ {producto.precio}</Card.Text>
                 <Card.Text>Disponible en otros colores </Card.Text>
                 {seleccionado? <Button as={Link} to={`/Cart`} onClick={getCount} variant="secondary" size="sm">Comprar</Button> : <ItemCount initial={1}  stock={5} onAdd={onAdd} />} 
-                 
-                {/* <ItemCount initial={1}  stock={5} onAdd={(value) => {if (value != undefined) setSeleccionado(value)}} /> */}
-            
             </Card.Body>
         </Card>
     )

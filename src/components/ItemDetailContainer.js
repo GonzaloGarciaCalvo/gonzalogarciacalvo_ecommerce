@@ -35,11 +35,10 @@ const ItemDetailContainer = (props) =>{
         getItem(producto)
         
     },[id])
-
-return (
-    <Container fluid as="section" className="d-flex flex-row justify-content-center pb-5" >
-    { loading ? "":  <ItemDetail producto={producto} />}
-    </Container> 
-)
+    return (
+        <Container fluid as="section" className="d-flex flex-row justify-content-center pb-5" >
+        { loading ? "":  <ItemDetail producto={producto} />}
+        </Container> 
+    )
 }
 export default ItemDetailContainer 

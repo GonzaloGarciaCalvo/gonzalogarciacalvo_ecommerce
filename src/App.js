@@ -7,8 +7,6 @@ import { ToastContainer } from "react-toastify"
 import MiProvider from "./components/CartContext"
 
 
-
-
 function App() {
 
     return (

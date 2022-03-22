@@ -22,7 +22,7 @@ const ItemListContainer = (prop) =>{
 				} else {filtrado = productosIniciales};
 				res(filtrado);
 				
-			}, 2000);
+			}, 1500);
 		});
 		promesa
 			.then((respuestaDeLaApi) => {
@@ -49,10 +49,9 @@ const ItemListContainer = (prop) =>{
     return (
 			<>
 				{ loading?   <div className='d-flex display-row justify-content-start m-5'>
-                                   <Spinner animation="border" role="status"> </Spinner>
-								   <p className="ms-4 mt-1">Cargando...</p>
+                                <Spinner animation="border" role="status"> </Spinner>
+								<p className="ms-4 mt-1">Cargando...</p>
 						    </div> : " "}
-				{/* <h2 className="pt-5">{prop.greeting}</h2> */}
 				<ItemList productos={productos} className="d-flex flex-row justify-content-center pb-5" />
 			</>
 	);

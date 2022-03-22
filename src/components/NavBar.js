@@ -22,7 +22,7 @@ function NavBar() {
 					</Container>
 				</Navbar>
 			</header>
-		);
+	);
 }
 
 export default NavBar

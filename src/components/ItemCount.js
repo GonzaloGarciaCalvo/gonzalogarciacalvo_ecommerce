@@ -19,17 +19,6 @@ const ItemCount  = ({stock, initial, onAdd}) => {
     const agregarAlCarrito = () => {
         if (contador <= stock && contador > 0) {
             onAdd(contador);
-            /* toast.info('', {
-                position: "bottom-center",
-                autoClose: 6000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                icon: false,
-                hideProgressBar: true,
-            }); */
         } 
     }
     

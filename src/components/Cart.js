@@ -4,12 +4,10 @@ import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 
 const Cart = () => {
-    /* const { clear, carrito, removeItem } = useContext(contextoCarrito) */
     const resultado = useContext(contextoCarrito)
     const carrito = resultado.carrito
     const clear = resultado.clear
     const removeItem = resultado.removeItem
-
     
     return (
         <div>
@@ -21,14 +19,15 @@ const Cart = () => {
                     <Card.Title>
                         <h3>{item.producto.nombre}</h3>
                     </Card.Title>
-                    
                     <p> Cantidad {item.cantidad}</p>
-                    {/* <p>Total : ${item.producto.precio * item.producto.cantidad}</p> */}
                     <Button onClick={()=>removeItem(item.producto)} variant="secondary" size="sm">Borrar</Button>
                 </Card>
             ))}
             </div>
-            <Button onClick={clear} variant="secondary" size="sm" className="mb-5 mx-auto d-flex flex-column align-self-center">Cancelar</Button>
+            { resultado.carrito.length? <div className="d-flex flex-row justify-content-center">
+                <Button onClick={clear} variant="secondary" size="sm" className="mb-5 mx-3 d-flex flex-column align-self-center">Cancelar</Button>
+                <Button  variant="secondary" size="sm" className="mb-5 mx-3 d-flex flex-column align-self-center">Comprar</Button>
+            </div> :""}
         </div>
         
     )

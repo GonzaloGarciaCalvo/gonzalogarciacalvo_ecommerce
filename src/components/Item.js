@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 const Item = (prop) =>{
     
     return (
-       
         <Card as="article" className=" col-2 col-md-3 mx-2 item">
             <Card.Body  className=' d-flex flex-column justify-content-center align-items-center px-1'>
                 <Card.Img variant="top" src={prop.imagen} alt="foto producto"/> 
