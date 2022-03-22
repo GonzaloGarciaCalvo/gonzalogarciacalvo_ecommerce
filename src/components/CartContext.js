@@ -7,6 +7,7 @@ const MiProvider = ({children}) => {
 
     const [carrito,setCarrito] = useState([])
     const [total,setTotal] = useState(0)
+    const [cantidadDeItems, setCantidadDeItems] = useState(0)
     
     const addItem = (producto,cantidad) => {
         let ordenDeItem = {producto, cantidad}
@@ -15,19 +16,26 @@ const MiProvider = ({children}) => {
             ordenDeItem = carrito.find(item => item.producto === producto)
             ordenDeItem.cantidad = ordenDeItem.cantidad + cantidad
             copiaCarrito = [...carrito]
-            console.log(" se agraga cantidad a producto ya en carrito", copiaCarrito)
         }else{
-                copiaCarrito = [ordenDeItem, ...carrito]
-                console.log(" se agraga producto nuevo a carrito",copiaCarrito)  
+            copiaCarrito = [ordenDeItem, ...carrito]  
         }
+        setCantidadDeItems(cantidadDeItems + cantidad)
         setCarrito(copiaCarrito)
+        setTotal(total + producto.precio*cantidad)
+        console.log("total",total) /* este no muestra el valor correcto, muetra el anterior */
     }
+    console.log("total",total)/*  este muestra el monto adecuado */
 
-    const removeItem = (producto) => {
-        if (isInCart(producto)) {
-            const copiaCarrito = carrito.filter(item => item.producto.id !== producto.id)
-            setCarrito(copiaCarrito)
-        }
+    const removeItem = (producto,cantidad) => {
+        let ordenDeItem = {producto, cantidad}
+        let copiaTotal;
+        
+        console.log(typeof("typeof copiaTotal",copiaTotal)) //da number
+        console.log("copiatotal",copiaTotal)
+        const copiaCarrito = carrito.filter(item => item.producto.id !== producto.id)
+        setTotal(total - producto.precio*cantidad) /* muestra NaN */
+        setCantidadDeItems(cantidadDeItems - cantidad)
+        setCarrito(copiaCarrito)    
     }
 
     const clear = () => {
@@ -43,6 +51,7 @@ const MiProvider = ({children}) => {
     const valorDelContexto = {
         total : total,
         carrito : carrito,
+        cantidadDeItems : cantidadDeItems,
         removeItem : removeItem,
         addItem : addItem,
         clear : clear,

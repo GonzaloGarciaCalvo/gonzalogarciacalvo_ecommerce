@@ -31,5 +31,4 @@ const ItemDetail = ({producto}) =>{
         </Card>
     )
 }
-
 export default ItemDetail
