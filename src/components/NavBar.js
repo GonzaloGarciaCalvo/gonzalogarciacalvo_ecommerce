@@ -18,10 +18,10 @@ function NavBar() {
 						<Link as="Navbar.Brand" to="/" className="titulo " >Aventura Wear</Link>
 						<Navbar.Toggle aria-controls="responsive-navbar-nav" />
 						<Navbar.Collapse id="responsive-navbar-nav">
-							<Nav className="me-auto">
-								<NavLink to="category/1" className="mx-5">Hombre</NavLink>
-								<NavLink to="category/2" className="mx-5">Mujer</NavLink>
-								<NavLink to="/" className="mx-5 px-2">Ver todo</NavLink>
+							<Nav className="w-100 d-flex flex-row justify-content-evenly">
+								<NavLink to="category/1" className={({isActive})=>isActive ?"linkActivo px-2":"linkNoActivo px-2"}>Hombre</NavLink>
+								<NavLink to="category/2" className={({isActive})=>isActive ?"linkActivo px-2":"linkNoActivo px-2"}>Mujer</NavLink>
+								<NavLink to="/" className={({isActive})=>isActive ?"linkActivo px-2":"linkNoActivo px-2"}>Ver todo</NavLink>
 								{resultado.carrito.length? <CartWidget /> : null}
 							</Nav>
 						</Navbar.Collapse>

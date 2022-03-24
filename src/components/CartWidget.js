@@ -1,5 +1,5 @@
 import cart from "../cart.png";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useContext } from "react"
 import { contextoCarrito } from "./CartContext"
 
@@ -8,10 +8,14 @@ const CartWidget = () => {
     const cantidadDeItems = resultado.cantidadDeItems
 
     return (
-        <Link  to="/cart"  className="etiquetaAcarrito">
-            <img src={cart} alt="carrito" className="cartIcon"></img>
-            <p className="">Cantidad de productos: {cantidadDeItems}</p>
-        </Link>       
+        <NavLink  to="/cart"  className="linkActivo etiquetaAcarrito">
+            <div className="d-flex flex-row justify-content-center ">
+                <img src={cart} alt="carrito" className="cartIcon "></img>
+                <p className=" pb-0">: {cantidadDeItems}</p>
+            </div>
+            
+        </NavLink>       
     )
 }
 export default CartWidget
+/* className={({ isActive }) => isActive ? "linkActivo" : "linkNoActivo"} */

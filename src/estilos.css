@@ -10,14 +10,18 @@ html , body , #root {
 
 a {
     text-decoration: none;
-    padding: 0.7em 3em 0em 3em;
+    padding: 0.1em 3em 0.1em 3em;
     font-size:1.5em;
     color: rgb(71, 71, 71);
     text-align: center;
+    /* height: 1.5em; */
+}
+a:hover{
+    color: gray;
 }
 .titulo {
     width: 30%;
-    padding: 0.1em 0 0 2em;
+    padding: 0em 0 0 2em;
     font-size: 2em;
 }
 .boxHeather {
@@ -34,11 +38,21 @@ a {
     justify-content: space-evenly;
 }
 .etiquetaAcarrito {
-    padding-top: 0;
+    padding-top: 0.7em;
+    height: 2em;
+    width: 10em;
 }
 .cartIcon {
-    width: 1.5em;
-    height: 1.5em;
+    width: 1.4em;
+    height: 1.2em;
+    margin-right: 0.1em;
+}
+.linkActivo {
+    line-height: 1.5em;
+    background-color: rgb(247, 241, 234);
+}
+.linkNoActivo {
+    background-color: transparent;
 }
 .listaDeProductos {
     display: flex;
