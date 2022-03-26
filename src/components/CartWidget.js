@@ -8,8 +8,8 @@ const CartWidget = () => {
     const cantidadDeItems = resultado.cantidadDeItems
 
     return (
-        <NavLink  to="/cart"  className="linkActivo etiquetaAcarrito">
-            <div className="d-flex flex-row justify-content-center ">
+        <NavLink  to="/cart"   className={({ isActive }) => isActive ? "linkActivo etiquetaAcarrito px-2" : "linkNoActivo etiquetaAcarrito px-2"}>
+            <div className="d-flex flex-row justify-content-center">
                 <img src={cart} alt="carrito" className="cartIcon "></img>
                 <p className=" pb-0">: {cantidadDeItems}</p>
             </div>
@@ -18,4 +18,4 @@ const CartWidget = () => {
     )
 }
 export default CartWidget
-/* className={({ isActive }) => isActive ? "linkActivo" : "linkNoActivo"} */
+/* className={({ isActive }) => isActive ? "linkActivo etiquetaAcarrito" : "linkNoActivo etiquetaAcarrito"} */

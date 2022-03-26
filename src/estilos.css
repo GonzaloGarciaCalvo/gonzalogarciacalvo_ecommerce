@@ -19,6 +19,8 @@ a {
 a:hover{
     color: gray;
 }
+
+/* HEADER */
 .titulo {
     width: 30%;
     padding: 0em 0 0 2em;
@@ -27,7 +29,7 @@ a:hover{
 .boxHeather {
     display: flex;
     flex-direction: row;
-    /* height: 3em; */
+    
     background-color: #f8f9fa;
 }
 .barraNav{
@@ -38,9 +40,9 @@ a:hover{
     justify-content: space-evenly;
 }
 .etiquetaAcarrito {
-    padding-top: 0.7em;
+    padding-top: 0.2em;
     height: 2em;
-    width: 10em;
+    width: 3.3em;
 }
 .cartIcon {
     width: 1.4em;
@@ -54,6 +56,8 @@ a:hover{
 .linkNoActivo {
     background-color: transparent;
 }
+
+/* itemListContainer */
 .listaDeProductos {
     display: flex;
     flex-direction: row;
@@ -84,7 +88,6 @@ a:hover{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* border: 1px solid grey; */
     box-shadow: 0 0 10px 4px  grey;
     padding-bottom: 1rem;
     margin-bottom: 2rem;
@@ -102,6 +105,22 @@ a:hover{
     padding-top: 0em;
     padding-bottom: 0.1em;
 }
+
+/* CART*/
 .totalCarrito{
     font-size: 1.5em;
+}
+.itemNombre {
+    width: 14em;
+    display: inline-block;
+}
+.itemSubTotal {
+    display: inline;
+    font-size: 1.2em;
+    width: 8em;
+   /*  line-height: 1.7em; */
+   /* margin-bottom: 0.5em; */
+   /* display: block; */
+   vertical-align: baseline;
+
 }

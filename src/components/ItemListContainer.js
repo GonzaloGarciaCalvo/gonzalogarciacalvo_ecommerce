@@ -4,9 +4,11 @@ import { useParams } from "react-router-dom"
 import Datos from './Datos'
 import Spinner from 'react-bootstrap/Spinner'
 import { toast } from "react-toastify"
+import { db } from "./Firebase"
+import {getDocs , collection, query, where} from "firebase/firestore"
 
 
-
+console.log(db)
 const productosIniciales = Datos()
     
 const ItemListContainer = (prop) =>{
@@ -14,7 +16,77 @@ const ItemListContainer = (prop) =>{
 	const [productos, setProductos] = useState([]);
 	const {id} = useParams()
 	useEffect(() => {
-		const promesa = new Promise((res, rej) => {
+        if (id == undefined){
+
+		const productsCollection = collection(db,"productos")
+        const documentos = getDocs(productsCollection)
+		documentos
+		.then((respuesta)=>{
+			const aux = []
+			respuesta.forEach((documento)=>{
+				const producto = {
+					id: documento.id,
+					...documento.data()
+				}
+				aux.push(producto)
+			})
+			console.log(aux)
+			setProductos(aux)
+		})
+		.catch(()=>{
+			toast.error("Error en la carga, intente nuevamnete", {
+				position: "top-center",
+				autoClose: 5000,
+				hideProgressBar: false,
+				closeOnClick: true,
+				pauseOnHover: true,
+				draggable: true,
+				progress: undefined,
+				hideProgressBar: true,
+			})
+		})
+		.finally(() => {
+			setLoading(false);
+		});
+	}
+
+	if (id !== undefined){
+
+		const productsCollection = query(collection(db,"productos"), where ("category", "==", id) );
+		/* getDocs(productsCollection) */
+        const documentos = getDocs(productsCollection)
+		documentos
+		.then((respuesta)=>{
+			const aux = []
+			respuesta.forEach((documento)=>{
+				const producto = {
+					id: documento.id,
+					...documento.data()
+				}
+				aux.push(producto)
+			})
+			console.log(aux)
+			setProductos(aux)
+		})
+		.catch(()=>{
+			toast.error("Error en la carga, intente nuevamnete", {
+				position: "top-center",
+				autoClose: 5000,
+				hideProgressBar: false,
+				closeOnClick: true,
+				pauseOnHover: true,
+				draggable: true,
+				progress: undefined,
+				hideProgressBar: true,
+			})
+		})
+		.finally(() => {
+			setLoading(false);
+		});
+	}
+
+
+		/* const promesa = new Promise((res, rej) => {
 			setTimeout(() => {
 				let filtrado = [];
 				if (id != undefined){
@@ -43,7 +115,7 @@ const ItemListContainer = (prop) =>{
 			})
 			.finally(() => {
 				setLoading(false);
-			});
+			}); */
 	},[id]);
 	
     return (

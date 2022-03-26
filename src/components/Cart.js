@@ -17,9 +17,9 @@ const Cart = () => {
             {resultado.carrito.length? 
             <div>
                 {carrito.map(item => (
-                    <div key={item.producto.id} className="mx-4 d-flex flex-row justify-content-start">
-                        <h5 className="text-center">{item.producto.nombre}</h5>
-                        <h6 className="ms-3"> subtital ${item.cantidad*item.producto.precio}</h6>
+                    <div key={item.producto.id} className="mx-4">
+                        <h5 className=" itemNombre ">{item.producto.nombre}</h5>
+                        <h6 className="ms-3  itemSubTotal">| Subtotal ${item.cantidad*item.producto.precio}</h6>
                     </div>
                 ))}
                 <p className="totalCarrito mx-4">Total: ${total}</p> 
