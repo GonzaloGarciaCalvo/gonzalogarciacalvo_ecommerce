@@ -3,6 +3,10 @@ import ItemDetail from './ItemDetail'
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import Datos from './Datos'
+import { toast } from "react-toastify"
+import { db } from "./Firebase"
+import { doc, getDoc } from "firebase/firestore";
+
 
 const productosIniciales = Datos()
 
@@ -13,8 +17,42 @@ const ItemDetailContainer = (props) =>{
     const {id} = useParams()
     
     const getItem =()=>{
+    console.log("id en IDC", id)
+    
+    const docRef = doc(db, "productos", id);
+    const docSnap =  getDoc(docRef);
+    docSnap
+    .then((respuesta) => {
+        /* const itemRespuesta = respuesta.data() */
+        const itemRespuesta = {
+            id: respuesta.id,
+            ...respuesta.data()
+        }
         
-        const promesa = new Promise((res,rej)=>{
+        setProducto(itemRespuesta)
+        console.log("producto en IDC ",producto)//
+        console.log("producto en IDC ",itemRespuesta) // lo muestra con id
+    })
+    
+    .catch(()=>{
+        toast.error("Error en la carga, intente nuevamnete", {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            hideProgressBar: true,
+        })
+    })
+    .finally(() => {
+        setLoading(false);
+    });
+        
+    
+        
+        /* const promesa = new Promise((res,rej)=>{
             setTimeout(()=>{
 				filtrado =productosIniciales.filter(el => el.item==id);
                 res(filtrado[0])
@@ -29,7 +67,7 @@ const ItemDetailContainer = (props) =>{
         })
         .finally(()=>{
             setLoading(false)
-        })
+        }) */
     }
     useEffect(()=>{
         getItem(producto)
