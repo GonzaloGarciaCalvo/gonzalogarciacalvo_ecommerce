@@ -73,6 +73,9 @@ a:hover{
     box-shadow: 0 0 6px 0  grey;
     margin-top: 2em;
 }
+.item__nombre {
+    font-size: 1.1em!important;
+}
 .item2 {
     display: flex;
     flex-direction: column;

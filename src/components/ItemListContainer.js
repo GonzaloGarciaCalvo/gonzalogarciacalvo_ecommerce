@@ -16,92 +16,26 @@ const ItemListContainer = (prop) =>{
 	const [productos, setProductos] = useState([]);
 	const {id} = useParams()
 	useEffect(() => {
-        if (id == undefined){
-
-		const productsCollection = collection(db,"productos")
-        const documentos = getDocs(productsCollection)
+		let productsCollection;
+		let documentos;
+		if (id == undefined) {
+			productsCollection = collection(db, "productos");
+			documentos = getDocs(productsCollection);
+		} else {
+			productsCollection = query(collection(db, "productos"), where("category", "==", id));
+			documentos = getDocs(productsCollection);
+		}
 		documentos
-		.then((respuesta)=>{
-			const aux = []
-			respuesta.forEach((documento)=>{
-				const producto = {
-					id: documento.id,
-					...documento.data()
-				}
-				aux.push(producto)
+			.then((respuesta) => {
+				const aux = [];
+				respuesta.forEach((documento) => {
+					const producto = {id: documento.id, ...documento.data(),};
+					aux.push(producto);
+				});
+				console.log(aux);
+				setProductos(aux);
 			})
-			console.log(aux)
-			setProductos(aux)
-		})
-		.catch(()=>{
-			toast.error("Error en la carga, intente nuevamnete", {
-				position: "top-center",
-				autoClose: 5000,
-				hideProgressBar: false,
-				closeOnClick: true,
-				pauseOnHover: true,
-				draggable: true,
-				progress: undefined,
-				hideProgressBar: true,
-			})
-		})
-		.finally(() => {
-			setLoading(false);
-		});
-	}
-
-	if (id !== undefined){
-
-		const productsCollection = query(collection(db,"productos"), where ("category", "==", id) );
-		/* getDocs(productsCollection) */
-        const documentos = getDocs(productsCollection)
-		documentos
-		.then((respuesta)=>{
-			const aux = []
-			respuesta.forEach((documento)=>{
-				const producto = {
-					id: documento.id,
-					...documento.data()
-				}
-				aux.push(producto)
-			})
-			console.log(aux)
-			setProductos(aux)
-		})
-		.catch(()=>{
-			toast.error("Error en la carga, intente nuevamnete", {
-				position: "top-center",
-				autoClose: 5000,
-				hideProgressBar: false,
-				closeOnClick: true,
-				pauseOnHover: true,
-				draggable: true,
-				progress: undefined,
-				hideProgressBar: true,
-			})
-		})
-		.finally(() => {
-			setLoading(false);
-		});
-	}
-
-
-		/* const promesa = new Promise((res, rej) => {
-			setTimeout(() => {
-				let filtrado = [];
-				if (id != undefined){
-					filtrado =productosIniciales.filter(el => el.category==id);
-				} else {filtrado = productosIniciales};
-				res(filtrado);
-				
-			}, 1500);
-		});
-		promesa
-			.then((respuestaDeLaApi) => {
-				setProductos(respuestaDeLaApi);
-			})
-			.catch((errorDeLaApi) => {
-				console.log(errorDeLaApi);
+			.catch(() => {
 				toast.error("Error en la carga, intente nuevamnete", {
 					position: "top-center",
 					autoClose: 5000,
@@ -111,19 +45,19 @@ const ItemListContainer = (prop) =>{
 					draggable: true,
 					progress: undefined,
 					hideProgressBar: true,
-				})
+				});
 			})
 			.finally(() => {
 				setLoading(false);
-			}); */
-	},[id]);
-	
+			});
+	}, [id]);
+
     return (
 			<>
 				{ loading?   <div className='d-flex display-row justify-content-start m-5'>
                                 <Spinner animation="border" role="status"> </Spinner>
 								<p className="ms-4 mt-1">Cargando...</p>
-						    </div> : " "}
+							</div> : " "}
 				<ItemList productos={productos} className="d-flex flex-row justify-content-center pb-5" />
 			</>
 	);
