@@ -2,13 +2,12 @@ import Container from 'react-bootstrap/Container'
 import ItemDetail from './ItemDetail'
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
-import Datos from './Datos'
 import { toast } from "react-toastify"
 import { db } from "./Firebase"
 import { doc, getDoc } from "firebase/firestore";
 import Spinner from 'react-bootstrap/Spinner'
 
-const productosIniciales = Datos()
+
 
 const ItemDetailContainer = (props) =>{
     
@@ -23,16 +22,11 @@ const ItemDetailContainer = (props) =>{
     const docSnap =  getDoc(docRef);
     docSnap
     .then((respuesta) => {
-        const itemRespuesta = {
-            id: respuesta.id,
-            ...respuesta.data()
-        }
-        
+        const itemRespuesta = {id: respuesta.id, ...respuesta.data()}
         setProducto(itemRespuesta)
         console.log("producto luego del setProducto en IDC ",producto)// objeto vacío ...??
         console.log("itemRespuesta en IDC ",itemRespuesta) // lo muestra bien
     })
-    
     .catch(()=>{
         toast.error("Error en la carga, intente nuevamnete", {
             position: "top-center",

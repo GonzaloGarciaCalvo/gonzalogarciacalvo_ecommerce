@@ -1,29 +1,25 @@
 import ItemList from './ItemList'
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
-import Datos from './Datos'
 import Spinner from 'react-bootstrap/Spinner'
 import { toast } from "react-toastify"
-import { db } from "./Firebase"
+import { db} from "./Firebase"
 import {getDocs , collection, query, where} from "firebase/firestore"
 
-
-console.log(db)
-const productosIniciales = Datos()
     
 const ItemListContainer = (prop) =>{
     const [loading, setLoading] = useState(true);
 	const [productos, setProductos] = useState([]);
-	const {id} = useParams()
+	const {id} = useParams() 
 	useEffect(() => {
 		let productsCollection;
-		let documentos;
+		let documentos; 
 		if (id == undefined) {
 			productsCollection = collection(db, "productos");
-			documentos = getDocs(productsCollection);
+			documentos = getDocs(productsCollection); 
 		} else {
 			productsCollection = query(collection(db, "productos"), where("category", "==", id));
-			documentos = getDocs(productsCollection);
+			documentos = getDocs(productsCollection); 
 		}
 		documentos
 			.then((respuesta) => {
@@ -32,7 +28,6 @@ const ItemListContainer = (prop) =>{
 					const producto = {id: documento.id, ...documento.data(),};
 					aux.push(producto);
 				});
-				console.log(aux);
 				setProductos(aux);
 			})
 			.catch(() => {
@@ -47,9 +42,7 @@ const ItemListContainer = (prop) =>{
 					hideProgressBar: true,
 				});
 			})
-			.finally(() => {
-				setLoading(false);
-			});
+			.finally(() => setLoading(false));
 	}, [id]);
 
     return (
