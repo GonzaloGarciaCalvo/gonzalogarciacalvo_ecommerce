@@ -12,7 +12,7 @@ const ItemListContainer = (prop) =>{
 	const [productos, setProductos] = useState([]);
 	const {id} = useParams() 
 	useEffect(() => {
-		let productsCollection;
+		/* let productsCollection;
 		let documentos; 
 		if (id == undefined) {
 			productsCollection = collection(db, "productos");
@@ -42,7 +42,7 @@ const ItemListContainer = (prop) =>{
 					hideProgressBar: true,
 				});
 			})
-			.finally(() => setLoading(false));
+			.finally(() => setLoading(false)); */
 	}, [id]);
 
     return (
