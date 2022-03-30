@@ -3,7 +3,7 @@ import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import Spinner from 'react-bootstrap/Spinner'
 import { toast } from "react-toastify"
-import { db} from "./Firebase"
+import { db, GetProducts} from "./Firebase"
 import {getDocs , collection, query, where} from "firebase/firestore"
 
     
@@ -12,6 +12,7 @@ const ItemListContainer = (prop) =>{
 	const [productos, setProductos] = useState([]);
 	const {id} = useParams() 
 	useEffect(() => {
+		GetProducts()
 		/* let productsCollection;
 		let documentos; 
 		if (id == undefined) {
