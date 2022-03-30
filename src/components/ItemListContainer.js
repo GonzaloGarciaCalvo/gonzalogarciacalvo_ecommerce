@@ -5,6 +5,7 @@ import Spinner from 'react-bootstrap/Spinner'
 import { toast } from "react-toastify"
 import { db} from "./Firebase"
 import {getDocs , collection, query, where} from "firebase/firestore"
+import { MiToast } from './MiToast'
 
     
 const ItemListContainer = (prop) =>{
@@ -16,21 +17,23 @@ const ItemListContainer = (prop) =>{
 		let documentos; 
 		if (id == undefined) {
 			productsCollection = collection(db, "productos");
-			documentos = getDocs(productsCollection); 
+			/* documentos = getDocs(productsCollection);  */
 		} else {
 			productsCollection = query(collection(db, "productos"), where("category", "==", id));
-			documentos = getDocs(productsCollection); 
+			/* documentos = getDocs(productsCollection);  */
 		}
+		documentos = getDocs(productsCollection); 
 		documentos
 			.then((respuesta) => {
 				const aux = [];
 				respuesta.forEach((documento) => {
-					const producto = {id: documento.id, ...documento.data(),};
+					const producto = {id: documento.id, ...documento.data()};
 					aux.push(producto);
 				});
 				setProductos(aux);
 			})
 			.catch(() => {
+				/* MiToast() */
 				toast.error("Error en la carga, intente nuevamnete", {
 					position: "top-center",
 					autoClose: 5000,

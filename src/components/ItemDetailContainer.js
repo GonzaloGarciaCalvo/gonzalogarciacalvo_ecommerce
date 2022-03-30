@@ -16,7 +16,6 @@ const ItemDetailContainer = (props) =>{
     const {id} = useParams()
     
     const getItem =()=>{
-    console.log("id en IDC", id)
     
     const docRef = doc(db, "productos", id);
     const docSnap =  getDoc(docRef);
@@ -24,8 +23,6 @@ const ItemDetailContainer = (props) =>{
     .then((respuesta) => {
         const itemRespuesta = {id: respuesta.id, ...respuesta.data()}
         setProducto(itemRespuesta)
-        console.log("producto luego del setProducto en IDC ",producto)// objeto vacío ...??
-        console.log("itemRespuesta en IDC ",itemRespuesta) // lo muestra bien
     })
     .catch(()=>{
         toast.error("Error en la carga, intente nuevamnete", {
