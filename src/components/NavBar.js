@@ -19,8 +19,8 @@ function NavBar() {
 						<Navbar.Toggle aria-controls="responsive-navbar-nav" />
 						<Navbar.Collapse id="responsive-navbar-nav">
 							<Nav className="w-100 pt-3 d-flex flex-row justify-content-evenly">
-								<NavLink to="category/1" className={({isActive})=>isActive ?"linkActivo px-2":"linkNoActivo px-2"}>Hombre</NavLink>
-								<NavLink to="category/2" className={({isActive})=>isActive ?"linkActivo px-2":"linkNoActivo px-2"}>Mujer</NavLink>
+								<NavLink to="category/hombre" className={({isActive})=>isActive ?"linkActivo px-2":"linkNoActivo px-2"}>Hombre</NavLink>
+								<NavLink to="category/mujer" className={({isActive})=>isActive ?"linkActivo px-2":"linkNoActivo px-2"}>Mujer</NavLink>
 								<NavLink to="/" className={({isActive})=>isActive ?"linkActivo px-2":"linkNoActivo px-2"}>Ver todo</NavLink>
 								{resultado.carrito.length? <CartWidget /> : null}
 							</Nav>
