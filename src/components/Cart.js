@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { addDoc , collection , serverTimestamp } from "firebase/firestore"
 import { db } from "./Firebase"
 import Form from "./Form";
+import validator from 'validator';
 
 const Cart = () => {
     const resultado = useContext(contextoCarrito)
@@ -13,55 +14,66 @@ const Cart = () => {
     const total = resultado.total
     const clear = resultado.clear
     const removeItem = resultado.removeItem
-    const [datos, setDatos] = useState({
-        nombre:"",
-        telefono: "",
-        email:"",
-        codigo:""
-    }) 
+    
+    const [nombre, setNombre]= useState("")
+    const [telefono, setTelefono] = useState("")
+    const [email, setEmail] = useState("")
     const [myForm, setMyForm] = useState(true)
     const [compraEfectuada, setCompraEfectuada]= useState(false)
-
-    const handleInputChange = (event) => {
-        setDatos({
-            ...datos,
-            [event.target.name] : event.target.value
-        })
-    }
+    const [idFirebase, setIdFirebase] = useState("")
+   
+    /* const handleInputChange1 = (event) => {
+        setNombre(event.target.value)
+        console.log(nombre)
+    } 
+    const handleInputChange2 = (event) => {
+        setTelefono(event.target.value)
+        console.log(event.target.value)
+    } 
+    const handleInputChange3 = (event) => {
+        setEmail(event.target.value)
+        console.log(email)
+    } */
 
     const enviarDatos = (event) => {
         event.preventDefault()
-        console.log('enviando datos...' + datos.nombre + ' ' + datos.apellido + ' ' + datos.email)
-    }
+    } 
 
     let codigoDeOrden;
+    const validaNombre = validator.isAlpha(nombre,"es-ES", {ignore:" "})
+    const validaTelefono = validator.isNumeric(telefono)
+    const validaEmail = validator.isEmail(email)
+    console.log(validaNombre)
+    console.log(validaTelefono)
+    console.log(validaEmail)
     const handleClick = () => {
-        const orden = {
-            buyer : {
-                nombre : datos.nombre,
-                telefono : datos.telefono,
-                email : datos.email
-            },
-            items : carrito,
-            date : serverTimestamp(),
-            total : total
-        }
-        
-        const ordenesCollection = collection(db, "ordenes")
-        const pedido = addDoc(ordenesCollection,orden)
-        pedido
-        .then(res=>{
-            console.log(res.id)
-            datos.codigo = res.id
+        if(validaNombre & validaTelefono & validaEmail){
+
+            const orden = {
+                buyer : {
+                    nombre : nombre,
+                    telefono : telefono,
+                    email : email
+                },
+                items : carrito,
+                date : serverTimestamp(),
+                total : total
+            }
+            const ordenesCollection = collection(db, "ordenes")
+            const pedido = addDoc(ordenesCollection,orden)
+            pedido
+            .then(res=>{
+                console.log("dentro",idFirebase)
+                setIdFirebase(res.id)
+            }); 
+            setCompraEfectuada(true)
             
-        }); 
-        setCompraEfectuada(true)
-        clear()
-        setMyForm(false)
-        console.log(myForm)
-        
+            clear()
+            setMyForm(false)
+            console.log(myForm)
+        }
     }
-    
+    console.log("IdFairbase", idFirebase)
     return (
         <div>
             <h1 className="m-4" > Carrito</h1> 
@@ -77,7 +89,6 @@ const Cart = () => {
                 </Card>
             ))}
             </div>
-
             {resultado.carrito.length? 
             <div>
                 {carrito.map(item => (
@@ -97,7 +108,6 @@ const Cart = () => {
             <h2 className="pb-4" >No tenés productos en el carrito</h2>
             <Button as={Link} to={`/`} variant="secondary" size="sm" >Ir a comprar</Button>
             </div>}
-            
            {/*  <div className="d-flex flex-row justify-content-evenly">
             {carrito.map(item => (
                 <Card key={item.producto.id} className="card col-2 col-md-3 mx-2 pb-3 mb-4 item item2">
@@ -124,20 +134,20 @@ const Cart = () => {
         {resultado.carrito.length? 
             <div className="pb-5"> 
                 <form onSubmit={enviarDatos} >
-                    <p>Ingresa tus datos para la entrega</p>
-                    <input required type="text" placeholder="Nombre" onChange={handleInputChange} name="nombre"/><br></br>
-                    <input required type="text" placeholder="telefono" onChange={handleInputChange} name="telefono"/>
-                    <input required type="text" placeholder="email" onChange={handleInputChange} name="email"/>
+                    <p className="mx-5">Ingresa tus datos para la entrega</p>
+                    <input required type="text" placeholder="Nombre" onChange={(e)=>{setNombre(e.target.value); console.log(nombre)}} name="nombre" value={nombre} className="m-5" />
+                    <input required type="text" placeholder="telefono" onChange={(e)=>{setTelefono(e.target.value); console.log(telefono)}} name="telefono" value={telefono} className="m-5"/>
+                    <input required type="text" placeholder="email" onChange={(e)=>{setEmail(e.target.value); console.log(email)}} name="email" className="m-5"/>
                 </form> 
             </div>
             : ""
         }
-        {compraEfectuada? 
+        { compraEfectuada? 
             <div>
-                <p className="text-center p-5 fs-3 text">Gracias por tu compra, el código de tu compra es: <span>{datos.codigo}</span>  </p>
+                {/* <p className="text-center p-5 fs-3 text">Gracias por tu compra, el código de tu compra es: <span>{datos.codigo}</span>  </p> */}
+                <p className="text-center p-5 fs-3 text">Gracias por tu compra, el código de tu compra es: <span>{idFirebase}</span>  </p>
             </div>:""}
         </div>
-        
     )
 }
 
