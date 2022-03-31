@@ -18,4 +18,3 @@ const CartWidget = () => {
     )
 }
 export default CartWidget
-/* className={({ isActive }) => isActive ? "linkActivo etiquetaAcarrito" : "linkNoActivo etiquetaAcarrito"} */
