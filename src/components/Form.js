@@ -1,45 +1,14 @@
-import { useContext, useState } from "react"
-import { addDoc , collection , serverTimestamp } from "firebase/firestore"
-const Form = ()=>{
-    /* const [datos, setDatos] = useState({
-        nombre:"",
-        telefono: "",
-        email:" "
-    }) 
 
-    const handleInputChange = (event) => {
-
-        setDatos({
-            ...datos,
-            [event.target.name] : event.target.value
-        })
-    }
-
-    const enviarDatos = (event) => {
-        event.preventDefault()
-        console.log('enviando datos...' + datos.nombre + ' ' + datos.apellido + ' ' + datos.email)
-    }
-
-
-    const handleClick = () => {
-        const orden = {
-            buyer : {
-                nombre : datos.nombre,
-                telefono : datos.telefono,
-                email : datos.email
-            },
-            items : carrito,
-            date : serverTimestamp(),
-            total : total
-        }
-        
-        const ordenesCollection = collection(db, "ordenes")
-        const pedido = addDoc(ordenesCollection,orden)
-        pedido
-        .then(res=>{
-            console.log(res.id)
-            
-        });
-    } */
+const Form = ({setearNombre, setearEmail, setearTelefono, nombre, telefono, enviarDatos})=>{
+    return(
+        <div className="pb-5"> 
+                <form onSubmit={enviarDatos} >
+                    <p className="mx-5">Ingresa tus datos para la entrega</p>
+                    <input required type="text" placeholder="Nombre" onChange={e=>setearNombre(e.target.value)} name="nombre" value={nombre} className="m-5" />
+                    <input required type="text" placeholder="telefono" onChange={e=>setearTelefono(e.target.value)} name="telefono" value={telefono} className="m-5"/>
+                    <input required type="text" placeholder="email" onChange={e=>setearEmail(e.target.value)} name="email" className="m-5"/>
+                </form> 
+        </div>
+    )
 }
 export default Form

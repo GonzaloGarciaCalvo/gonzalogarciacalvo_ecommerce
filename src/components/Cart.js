@@ -39,17 +39,12 @@ const Cart = () => {
         event.preventDefault()
     } 
 
-    let codigoDeOrden;
     const validaNombre = validator.isAlpha(nombre,"es-ES", {ignore:" "})
     const validaTelefono = validator.isNumeric(telefono)
     const validaEmail = validator.isEmail(email)
-    console.log(validaNombre)
-    console.log(validaTelefono)
-    console.log(validaEmail)
     const handleClick = () => {
         if(validaNombre & validaTelefono & validaEmail){
-
-            const orden = {
+            const orden = { 
                 buyer : {
                     nombre : nombre,
                     telefono : telefono,
@@ -67,13 +62,11 @@ const Cart = () => {
                 setIdFirebase(res.id)
             }); 
             setCompraEfectuada(true)
-            
             clear()
             setMyForm(false)
             console.log(myForm)
         }
     }
-    console.log("IdFairbase", idFirebase)
     return (
         <div>
             <h1 className="m-4" > Carrito</h1> 
@@ -87,9 +80,10 @@ const Cart = () => {
                     <p> Cantidad {item.cantidad}</p>
                     <Button onClick={()=>removeItem(item.producto,item.cantidad)} variant="secondary" size="sm">Borrar</Button>
                 </Card>
-            ))}
+            ))
+            }
             </div>
-            {resultado.carrito.length? 
+            {carrito.length?
             <div>
                 {carrito.map(item => (
                     <div key={item.producto.id} className="mx-4">
@@ -107,47 +101,18 @@ const Cart = () => {
             <div className="d-flex flex-column align-items-center">
             <h2 className="pb-4" >No tenés productos en el carrito</h2>
             <Button as={Link} to={`/`} variant="secondary" size="sm" >Ir a comprar</Button>
-            </div>}
-           {/*  <div className="d-flex flex-row justify-content-evenly">
-            {carrito.map(item => (
-                <Card key={item.producto.id} className="card col-2 col-md-3 mx-2 pb-3 mb-4 item item2">
-                    <Card.Img variant="top" src={item.producto.imagen} /> 
-                    <Card.Title>
-                        <h5 className="text-center">{item.producto.nombre}</h5>
-                    </Card.Title>
-                    <p> Cantidad {item.cantidad}</p>
-                    <Button onClick={()=>removeItem(item.producto,item.cantidad)} variant="secondary" size="sm">Borrar</Button>
-                </Card>
-            ))}
-            </div> */}
-            {/* { resultado.carrito.length? <div className="d-flex flex-column justify-content-center">
-                                            <Button  onClick={handleClick} variant="secondary" size="sm" className="mb-4 mx-3 d-flex  align-self-center">Terminar compra</Button>
-                                            <Button onClick={clear} variant="secondary" size="sm" className="mb-5 mx-3 d-flex align-self-center">Cancelar</Button>
-                                        </div>
-                                        :<div className="d-flex flex-column align-items-center">
-                                            <h2 className="pb-4" >No tenés productos en el carrito</h2>
-                                            <Button as={Link} to={`/`} variant="secondary" size="sm" >Ir a comprar</Button>
-                                        </div>
-            } */}
-            
-        {/* {resultado.carrito.length && myForm?  */}
-        {resultado.carrito.length? 
-            <div className="pb-5"> 
-                <form onSubmit={enviarDatos} >
-                    <p className="mx-5">Ingresa tus datos para la entrega</p>
-                    <input required type="text" placeholder="Nombre" onChange={(e)=>{setNombre(e.target.value); console.log(nombre)}} name="nombre" value={nombre} className="m-5" />
-                    <input required type="text" placeholder="telefono" onChange={(e)=>{setTelefono(e.target.value); console.log(telefono)}} name="telefono" value={telefono} className="m-5"/>
-                    <input required type="text" placeholder="email" onChange={(e)=>{setEmail(e.target.value); console.log(email)}} name="email" className="m-5"/>
-                </form> 
             </div>
-            : ""
+            }
+        {carrito.length?  <Form setearNombre={setNombre} setearTelefono={setTelefono} setearEmail={setEmail} nombre={nombre} telefono={telefono} enviarDatos={enviarDatos} /> 
+        : ""
         }
         { compraEfectuada? 
             <div>
-                {/* <p className="text-center p-5 fs-3 text">Gracias por tu compra, el código de tu compra es: <span>{datos.codigo}</span>  </p> */}
-                <p className="text-center p-5 fs-3 text">Gracias por tu compra, el código de tu compra es: <span>{idFirebase}</span>  </p>
-            </div>:""}
-        </div>
+                <p className="text-center p-5 fs-3 text">Gracias por tu compra, el código de tu compra es: </p>
+                <p className="text-center  fs-3 text" >{idFirebase} </p>
+            </div>: ""
+        }
+        </div> 
     )
 }
 

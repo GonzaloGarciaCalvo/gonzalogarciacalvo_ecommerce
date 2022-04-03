@@ -1,7 +1,5 @@
 import {useState} from 'react'
 import Button from 'react-bootstrap/Button'
-import { toast } from "react-toastify"
-import 'react-toastify/dist/ReactToastify.css';
 
 const ItemCount  = ({stock, initial, onAdd}) => {
     
@@ -13,7 +11,7 @@ const ItemCount  = ({stock, initial, onAdd}) => {
     }
 
     const restarCantidad = () => {
-         if (contador > 1) setContador(contador - 1) 
+        if (contador > 1) setContador(contador - 1) 
     }
     
     const agregarAlCarrito = () => {
