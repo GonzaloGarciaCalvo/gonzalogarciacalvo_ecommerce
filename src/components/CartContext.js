@@ -22,19 +22,10 @@ const MiProvider = ({children}) => {
         setCantidadDeItems(cantidadDeItems + cantidad)
         setCarrito(copiaCarrito)
         setTotal(total + ordenDeItem.producto.precio*ordenDeItem.cantidad)
-        console.log("total",total) 
     }
-    console.log("total",total)
 
     const removeItem = (producto,cantidad) => {
-        let ordenDeItem = {producto, cantidad}
-        let copiaTotal = total
-        
-        console.log(typeof("typeof copiaTotal",copiaTotal)) //da number
-        console.log("copiatotal",copiaTotal)
         const copiaCarrito = carrito.filter(item => item.producto.id !== producto.id)
-        /* setTotal(copiaTotal - producto.precio*cantidad) */ /* muestra NaN */
-
         setTotal(total - producto.precio*cantidad)
         setCantidadDeItems(cantidadDeItems - cantidad)
         setCarrito(copiaCarrito)    
@@ -45,9 +36,7 @@ const MiProvider = ({children}) => {
     }
 
     const isInCart = (producto) => {
-       return carrito && carrito.some(item => item.producto.id === producto.id)
-        
-        
+        return carrito && carrito.some(item => item.producto.id === producto.id)      
     }
 
     const valorDelContexto = {
@@ -65,5 +54,4 @@ const MiProvider = ({children}) => {
         </Provider>
     )
 }
-
 export default MiProvider
