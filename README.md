@@ -9,12 +9,21 @@ En App.js se encuentra el provider y el Browserrouter.
 # Herramientas
 Aplicación creada con react-create-app
 
-# Librerías
- - "react-router-dom": "^6.2.2"
+## Librerías
+- "react-router-dom": "^6.2.2"
 - "react-bootstrap": "^2.1.2"
 - "react-toastify": "^8.2.0"
 - "firebase": "^9.6.10"
 - "validator": "^13.7.0"
+
+Brain, consultas:
+"node-sass": "^7.0.1", ??  cómo se instaló?  el profe dijo que viene con la instalación, pero me hice otra app con las mismas instalaciones router dom, bootstrap, firebase, validatos, y no aparece el node sass
+
+# Proceso de instalación 
+En consola ir a la carpeta de destino con:  cd <carpeta>
+Clonar el repositorio con git clone <url repositorio>
+Instalar npm con: npm install
+Visualizar el proyecto en servidor local con: npm start
 
 ## Diagrama
 
