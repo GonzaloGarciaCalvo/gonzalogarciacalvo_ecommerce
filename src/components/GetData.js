@@ -22,7 +22,7 @@ const GetData = ()=>{
         .then(respuesta => setProductos(respuesta.docs.map(doc=>({id:doc.id, ...doc.data()}))))
         .catch(() => MiToast()) //NO FUNCIONA
         .finally(() => setLoading(false));
-        return
+        return(<></>)
 }
     
 export default GetData

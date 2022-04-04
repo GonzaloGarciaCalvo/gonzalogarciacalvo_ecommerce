@@ -23,12 +23,8 @@ const MiProvider = ({children}) => {
         setCarrito(copiaCarrito)
         setTotal(total + ordenDeItem.producto.precio*ordenDeItem.cantidad)
     }
-    console.log("total",total)
 
     const removeItem = (producto,cantidad) => {
-        let copiaTotal = total
-        console.log(typeof("typeof copiaTotal",copiaTotal)) 
-        console.log("copiatotal",copiaTotal)
         const copiaCarrito = carrito.filter(item => item.producto.id !== producto.id)
         setTotal(total - producto.precio*cantidad)
         setCantidadDeItems(cantidadDeItems - cantidad)
@@ -41,8 +37,6 @@ const MiProvider = ({children}) => {
 
     const isInCart = (producto) => {
        return carrito && carrito.some(item => item.producto.id === producto.id)
-        
-        
     }
 
     const valorDelContexto = {
