@@ -96,6 +96,7 @@ const Cart = () => {
                     <Button  onClick={handleClick} variant="secondary" size="sm" className="mb-4 mx-3 d-flex  align-self-center">Terminar compra</Button>
                     <Button onClick={clear} variant="secondary" size="sm" className="mb-5 mx-3 d-flex align-self-center">Cancelar</Button>
                 </div>
+                <Form setearNombre={setNombre} setearTelefono={setTelefono} setearEmail={setEmail} nombre={nombre} telefono={telefono} enviarDatos={enviarDatos} />
             </div>
             : 
             <div className="d-flex flex-column align-items-center">
@@ -103,9 +104,6 @@ const Cart = () => {
             <Button as={Link} to={`/`} variant="secondary" size="sm" >Ir a comprar</Button>
             </div>
             }
-        {carrito.length?  <Form setearNombre={setNombre} setearTelefono={setTelefono} setearEmail={setEmail} nombre={nombre} telefono={telefono} enviarDatos={enviarDatos} /> 
-        : ""
-        }
         { compraEfectuada? 
             <div>
                 <p className="text-center p-5 fs-3 text">Gracias por tu compra, el código de tu compra es: </p>
