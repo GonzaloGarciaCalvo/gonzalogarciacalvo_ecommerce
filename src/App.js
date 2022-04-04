@@ -5,12 +5,14 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Cart from "./components/Cart"
 import { ToastContainer } from "react-toastify"
 import MiProvider from "./components/CartContext"
+import { ProductContextProvider } from "./components/ProductContext";
 
 
 function App() {
 
     return (
 			<MiProvider>
+				<ProductContextProvider>
 				<BrowserRouter>
 					<NavBar />
 					<Routes>
@@ -21,6 +23,7 @@ function App() {
 					</Routes>
 					<ToastContainer />
 				</BrowserRouter>
+				</ProductContextProvider>
 			</MiProvider>
 		);
 }

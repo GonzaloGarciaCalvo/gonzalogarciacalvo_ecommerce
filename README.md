@@ -9,13 +9,6 @@ incrementar la cantidad hasta llegar al stock disponible, o disminuir la cantida
 En carrito se muestran los productos seleccionados, el monto por cada iten y el total, con botón para cancelar y para terminar la compra
 
 
-De App se desperende:
-                    | ItemListContainer / ItemList/ Item / ItemCount
-                    | ItemDetailContainer / ItemDetail
-                    | Navbar / CartWidget
-                    | Cart
-                    | Context
-
 # Herramientas
 Aplicación creada con react-create-app
 React-routrer-dom
@@ -24,7 +17,7 @@ React-tostify
 "firebase": "^9.6.10"
 validator
 
-
+# (falta link al deploy)
 
 
 
