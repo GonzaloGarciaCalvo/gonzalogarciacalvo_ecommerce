@@ -22,10 +22,10 @@ const ItemDetail = ({producto}) =>{
             <Card.Body  className=' d-flex flex-column justify-content-center align-items-center px-1'>
                 <Card.Img variant="top" src={producto.imagen} alt="foto producto"/> 
                 <Card.Title className='text-center detalleItem__titulo'>
-                    <h3>{producto.nombre} </h3>  
+                    <h3 className='fs-4'>{producto.nombre} </h3>  
                 </Card.Title>
-                <Card.Text >$ {producto.precio}</Card.Text>
-                <Card.Text>Disponible en otros colores </Card.Text>
+                <Card.Text className='fs-4' >$ {producto.precio}</Card.Text>
+                <Card.Text>100% algodón. Disponible en otros colores </Card.Text>
                 {seleccionado? <Button as={Link} to={`/Cart`} onClick={getCount} variant="secondary" size="sm">Comprar</Button> : <ItemCount initial={1}  stock={5} onAdd={onAdd} />} 
             </Card.Body>
         </Card>

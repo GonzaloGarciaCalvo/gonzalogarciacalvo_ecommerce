@@ -1,5 +1,6 @@
 
 const Form = ({setearNombre, setearEmail, setearTelefono, nombre, telefono, enviarDatos})=>{
+    
     return(
         <div className="pb-5"> 
                 <form onSubmit={enviarDatos} >
