@@ -68,12 +68,15 @@ a:hover{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 1px solid grey;
-    box-shadow: 0 0 6px 0  grey;
+    box-shadow: 0 0 4px 0  grey;
     margin-top: 2em;
+    width: 18.5%
 }
 .item__nombre {
     font-size: 1.1em!important;
+    height: 2.3em;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
 }
 .item2 {
     display: flex;
@@ -98,6 +101,13 @@ a:hover{
     font-size: 2rem;
     
 }
+.slogan {
+    text-align: center;
+    margin: 2rem 0 1rem 0;
+    font-size: 1.7rem;
+    color: grey;
+}
+
 .btnCounter {
     width: 2em;
     font-size: 1.4em;
@@ -107,6 +117,7 @@ a:hover{
     padding-top: 0em;
     padding-bottom: 0.1em;
 }
+
 
 /* Cart*/
 .totalCarrito{
@@ -121,5 +132,10 @@ a:hover{
     font-size: 1.2em;
     width: 8em;
     vertical-align: baseline;
-
+    margin-left: 0.1em;
+}
+.itemDetailCont {
+    background-image: url("../public/images/concrete-wall.jpg") ;
+    background-size: cover;
+    background-repeat: no-repeat;
 }

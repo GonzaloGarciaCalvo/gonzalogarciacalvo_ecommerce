@@ -7,6 +7,7 @@ import { addDoc , collection , serverTimestamp } from "firebase/firestore"
 import { db } from "./Firebase"
 import Form from "./Form";
 import validator from 'validator';
+import Container from 'react-bootstrap/Container'
 
 const Cart = () => {
     const resultado = useContext(contextoCarrito)
@@ -22,19 +23,6 @@ const Cart = () => {
     const [compraEfectuada, setCompraEfectuada]= useState(false)
     const [idFirebase, setIdFirebase] = useState("")
    
-    /* const handleInputChange1 = (event) => {
-        setNombre(event.target.value)
-        console.log(nombre)
-    } 
-    const handleInputChange2 = (event) => {
-        setTelefono(event.target.value)
-        console.log(event.target.value)
-    } 
-    const handleInputChange3 = (event) => {
-        setEmail(event.target.value)
-        console.log(email)
-    } */
-
     const enviarDatos = (event) => {
         event.preventDefault()
     } 
@@ -57,18 +45,14 @@ const Cart = () => {
             const ordenesCollection = collection(db, "ordenes")
             const pedido = addDoc(ordenesCollection,orden)
             pedido
-            .then(res=>{
-                console.log("dentro",idFirebase)
-                setIdFirebase(res.id)
-            }); 
+            .then(res=> setIdFirebase(res.id)); 
             setCompraEfectuada(true)
             clear()
             setMyForm(false)
-            console.log(myForm)
         }
     }
     return (
-        <div>
+        <Container as="main">
             <h1 className="m-4" > Carrito</h1> 
             <div className="d-flex flex-row justify-content-evenly mt-5">
             {carrito.map(item => (
@@ -104,13 +88,13 @@ const Cart = () => {
             <Button as={Link} to={`/`} variant="secondary" size="sm" >Ir a comprar</Button>
             </div>
             }
-        { compraEfectuada? 
+            { compraEfectuada? 
             <div>
                 <p className="text-center p-5 fs-3 text">Gracias por tu compra, el código de tu compra es: </p>
                 <p className="text-center  fs-3 text" >{idFirebase} </p>
             </div>: ""
         }
-        </div> 
+        </Container> 
     )
 }
 

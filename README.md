@@ -16,9 +16,6 @@ Aplicación creada con react-create-app
 - "firebase": "^9.6.10"
 - "validator": "^13.7.0"
 
-Brain, consultas:
-"node-sass": "^7.0.1", ??  cómo se instaló?  el profe dijo que viene con la instalación, pero me hice otra app con las mismas instalaciones router dom, bootstrap, firebase, validatos, y no aparece el node sass
-
 # Proceso de instalación 
 En consola ir a la carpeta de destino con:  cd <carpeta>
 Clonar el repositorio con git clone <url repositorio>
@@ -35,10 +32,9 @@ App
              |
              |
              |ItemDetailContainer
-                                |ItemDetail
-                                           |ItemCount
+             |                   |ItemDetail
+             |                              |ItemCount
              |
              |NavBar
-                    |CartWidget
-
+             |       |CartWidget
              |Carrito
