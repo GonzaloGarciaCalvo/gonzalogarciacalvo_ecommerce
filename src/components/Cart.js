@@ -53,7 +53,7 @@ const Cart = () => {
     }
     return (
         <Container as="main">
-            <h1 className="m-4" > Carrito</h1> 
+            <h1 className="m-4 fs-2" > Carrito</h1> 
             <div className="d-flex flex-row justify-content-evenly mt-5">
             {carrito.map(item => (
                 <Card key={item.producto.id} className="card col-2 col-md-3 mx-2 pb-3 mb-4 item item2">
@@ -84,14 +84,15 @@ const Cart = () => {
             </div>
             : 
             <div className="d-flex flex-column align-items-center">
-            <h2 className="pb-4" >No tenés productos en el carrito</h2>
-            <Button as={Link} to={`/`} variant="secondary" size="sm" >Ir a comprar</Button>
+            <h2 className="pb-4 fs-4" >No tenés productos en el carrito</h2>
+            <Button as={Link} to={`/`} variant="secondary"  >Ir a comprar</Button>
             </div>
             }
             { compraEfectuada? 
             <div>
-                <p className="text-center p-5 fs-3 text">Gracias por tu compra, el código de tu compra es: </p>
-                <p className="text-center  fs-3 text" >{idFirebase} </p>
+                <p className="text-center p-5 fs-3">Gracias por tu compra!!.</p>
+                <p className="text-center  fs-3" >El código de tu orden es:</p>
+                <p className="text-center  fs-4"  >{idFirebase} </p>
             </div>: ""
         }
         </Container> 

@@ -32,7 +32,7 @@ const ItemListContainer = () =>{
 	},[id])
 
     return (
-			<Container as="main">
+			<Container fluid as="main" >
 				<h2 className='slogan'>Remeras para tus deportes outdoor</h2>
 				{loading?  <div className='d-flex display-row justify-content-center m-5'>
                                 <Spinner animation="border" role="status"> </Spinner>

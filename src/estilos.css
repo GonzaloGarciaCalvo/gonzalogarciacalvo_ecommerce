@@ -70,7 +70,8 @@ a:hover{
     align-items: center;
     box-shadow: 0 0 4px 0  grey;
     margin-top: 2em;
-    width: 18.5%
+    margin:2em 1em 1em 1em;
+    max-width: 20rem;
 }
 .item__nombre {
     font-size: 1.1em!important;
@@ -138,4 +139,23 @@ a:hover{
     background-image: url("../public/images/concrete-wall.jpg") ;
     background-size: cover;
     background-repeat: no-repeat;
+}
+
+@media (max-width:576px) {
+    .titulo {
+        width: 80%;
+        padding: 0em 0 0 2em;
+        font-size: 1.6em;
+    }
+    .slogan {
+        margin: 2rem 0 1rem 0;
+        font-size: 1.3rem;
+    }
+    a {
+        padding: 0.1em 0em 0.1em 0em;
+        font-size:1.2em;
+    }
+    .etiquetaAcarrito {
+        width: 3.6em;
+    }
 }
