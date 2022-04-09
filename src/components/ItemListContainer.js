@@ -5,21 +5,23 @@ import Spinner from 'react-bootstrap/Spinner'
 /* import { db} from "./Firebase"
 import {getDocs , collection, query, where} from "firebase/firestore"
 import { MiToast } from './MiToast' */
-import GetData from './GetData'
+/* import GetData from './GetData' */
 import { useContext} from 'react';
-import { ProductContext } from "./ProductContext";
+/* import { ProductContext } from "./ProductContext"; */
 
 
     
-const ItemListContainer = () =>{
-    /* const [loading, setLoading] = useState(true);
-	const [productos, setProductos] = useState([]); */
-	const {productos, setProductos, loading, setLoading} = useContext(ProductContext);
+const ItemListContainer = (prop) =>{
+    const [loading, setLoading] = useState(true);
+	const [productos, setProductos] = useState([]); 
+	/* const {productos, setProductos, loading, setLoading} = useContext(ProductContext); */
 	const {id} = useParams() 
 	useEffect(() => {
 		/* let productsCollection;
 		let documentos;  */
-		GetData();
+	/* 	itemId, prod, sProd, load, sLoad  */
+		prop.GetData(id, productos, setProductos, loading, setLoading);
+		console.log("productos:  ",productos)
 		/* if (id === undefined) {
 			productsCollection = collection(db, "productos");
 		} else {

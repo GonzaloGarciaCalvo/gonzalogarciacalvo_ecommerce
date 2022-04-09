@@ -6,6 +6,7 @@ import Cart from "./components/Cart"
 import { ToastContainer } from "react-toastify"
 import MiProvider from "./components/CartContext"
 import { ProductContextProvider } from "./components/ProductContext";
+import GetData from "./components/GetData"
 
 
 function App() {
@@ -16,7 +17,7 @@ function App() {
 				<BrowserRouter>
 					<NavBar />
 					<Routes>
-						<Route path="/" element={<ItemListContainer />} />
+						<Route path="/" element={<ItemListContainer prop="GetData" />} />
 						<Route path="/category/:id" element={<ItemListContainer />} />
 						<Route path="/cart" element={<Cart />} />
 						<Route path="/item/:id" element={<ItemDetailContainer />} />

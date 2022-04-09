@@ -6,20 +6,20 @@ import { ProductContext } from "./ProductContext";
 import { useParams } from "react-router-dom"
 
 
-const GetData = ()=>{
-    const {productos, setProductos, loading, setLoading} = useContext(ProductContext);
-    const {id} = useParams() 
+const GetData = (itemId, productos, setProductos, loading, setLoading )=>{
+    /* const {productos, setProductos, loading, setLoading} = useContext(ProductContext); */
+    /* const {id} = useParams()  */
     let productsCollection;
 	let documentos; 
-    if (id === undefined) {
+    if (itemId === undefined) {
         productsCollection = collection(db, "productos");
     } else {
-        productsCollection = query(collection(db, "productos"), where("category", "==", id));
+        productsCollection = query(collection(db, "productos"), where("category", "==", itemId));
     }
     documentos = getDocs(productsCollection); 
     documentos
         
-        .then(respuesta => setProductos(respuesta.docs.map(doc=>({id:doc.id, ...doc.data()}))))
+        .then(respuesta => setProductos(respuesta.docs.map(doc=>({itemId:doc.itemId, ...doc.data()}))))
         .catch(() => MiToast()) //NO FUNCIONA
         .finally(() => setLoading(false));
         return(<></>)

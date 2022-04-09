@@ -10,12 +10,13 @@ const ItemDetail = ({producto}) =>{
     const addItem = resultado.addItem
     const [seleccionado, setSeleccionado] = useState(false)
     
-    const onAdd = (value)=> {
+   /*  const onAdd = (value)=> {
         if (value !== undefined) setSeleccionado(value)   
-    };
-    const getCount = () => {
-        addItem(producto, seleccionado)
-    }
+    }; */
+    const onAdd = (value)=> value?  setSeleccionado(value) : false;
+
+    const getCount = () => addItem(producto, seleccionado)
+    
     
     return (
         <Card as="article" className=" col-md-6  detalleItem mt-5">
