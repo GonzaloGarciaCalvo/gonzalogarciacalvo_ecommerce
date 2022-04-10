@@ -1,4 +1,4 @@
-import { db} from "./Firebase"
+/* import { db} from "./Firebase"
 import {getDocs , collection, query, where} from "firebase/firestore"
 import { MiToast } from './MiToast'
 import { useContext} from 'react';
@@ -7,8 +7,8 @@ import { useParams } from "react-router-dom"
 
 
 const GetData = (itemId, productos, setProductos, loading, setLoading )=>{
-    /* const {productos, setProductos, loading, setLoading} = useContext(ProductContext); */
-    /* const {id} = useParams()  */
+    //const {productos, setProductos, loading, setLoading} = useContext(ProductContext); 
+    // const {id} = useParams()  
     let productsCollection;
 	let documentos; 
     if (itemId === undefined) {
@@ -25,4 +25,4 @@ const GetData = (itemId, productos, setProductos, loading, setLoading )=>{
         return(<></>)
 }
     
-export default GetData
+export default GetData */

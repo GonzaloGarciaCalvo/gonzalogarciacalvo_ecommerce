@@ -6,7 +6,6 @@ import Cart from "./components/Cart"
 import { ToastContainer } from "react-toastify"
 import MiProvider from "./components/CartContext"
 import { ProductContextProvider } from "./components/ProductContext";
-import GetData from "./components/GetData"
 
 
 function App() {

@@ -16,7 +16,6 @@ const ItemDetailContainer = (props) =>{
     const {id} = useParams()
     
     const getItem =()=>{
-    console.log("id en IDC", id)
     
     const docRef = doc(db, "productos", id);
     const docSnap =  getDoc(docRef);
@@ -36,7 +35,6 @@ const ItemDetailContainer = (props) =>{
             pauseOnHover: true,
             draggable: true,
             progress: undefined,
-            hideProgressBar: true,
         })
     })
     .finally(() => {
