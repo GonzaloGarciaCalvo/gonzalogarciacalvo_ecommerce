@@ -1,6 +1,5 @@
 import {useState} from 'react'
 import Button from 'react-bootstrap/Button'
-
 const ItemCount  = ({stock, initial, onAdd}) => {
     
     const [contador, setContador] = useState(initial)
