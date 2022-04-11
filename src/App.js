@@ -5,25 +5,23 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Cart from "./components/Cart"
 import { ToastContainer } from "react-toastify"
 import MiProvider from "./components/CartContext"
-import { ProductContextProvider } from "./components/ProductContext";
+
 
 
 function App() {
 
     return (
 			<MiProvider>
-				<ProductContextProvider>
 				<BrowserRouter>
 					<NavBar />
 					<Routes>
-						<Route path="/" element={<ItemListContainer prop="GetData" />} />
+						<Route path="/" element={<ItemListContainer  />} />
 						<Route path="/category/:id" element={<ItemListContainer />} />
 						<Route path="/cart" element={<Cart />} />
 						<Route path="/item/:id" element={<ItemDetailContainer />} />
 					</Routes>
 					<ToastContainer />
 				</BrowserRouter>
-				</ProductContextProvider>
 			</MiProvider>
 		);
 }

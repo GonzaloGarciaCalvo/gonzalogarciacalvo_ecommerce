@@ -1,14 +1,14 @@
-/* import { db} from "./Firebase"
+import { db} from "./Firebase"
 import {getDocs , collection, query, where} from "firebase/firestore"
 import { MiToast } from './MiToast'
-import { useContext} from 'react';
-import { ProductContext } from "./ProductContext";
+import { useState} from 'react';
 import { useParams } from "react-router-dom"
 
 
-const GetData = (itemId, productos, setProductos, loading, setLoading )=>{
-    //const {productos, setProductos, loading, setLoading} = useContext(ProductContext); 
-    // const {id} = useParams()  
+const GetData = (itemId)=>{
+    const [loading, setLoading] = useState(true);
+	const [productos, setProductos] = useState([]); 
+ /* const {id} = useParams()   */
     let productsCollection;
 	let documentos; 
     if (itemId === undefined) {
@@ -20,9 +20,10 @@ const GetData = (itemId, productos, setProductos, loading, setLoading )=>{
     documentos
         
         .then(respuesta => setProductos(respuesta.docs.map(doc=>({itemId:doc.itemId, ...doc.data()}))))
-        .catch(() => MiToast()) //NO FUNCIONA
+        .catch(() => MiToast()) 
         .finally(() => setLoading(false));
-        return(<></>)
+        const objectRes = {loading, productos}
+        return(objectRes)
 }
     
-export default GetData */
+export default GetData 
