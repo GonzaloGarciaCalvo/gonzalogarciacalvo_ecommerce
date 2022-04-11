@@ -12,16 +12,17 @@ import GetData from './GetData'
     
 const ItemListContainer = () =>{
 
-    /* const [loading, setLoading] = useState(true);
-	const [productos, setProductos] = useState([]);  */
+    const [loading, setLoading] = useState(true);
+	const [productos, setProductos] = useState([]); 
 
 	/* const {productos, setProductos, loading, setLoading} = useContext(ProductContext); */
 	const {id} = useParams() 
 	let objectResponse
-
+    
 	useEffect(() => {
-	    GetData(id);
-		/* const productos = objectResponse.productos
+	    objectResponse = GetData(id, loading,productos,);
+		setLoading(objectResponse.loading)
+		setProductos(objectResponse.productos)/* const productos = objectResponse.productos
 		const loading =objectResponse.loading */
 		/* let productsCollection;
 		let documentos;  */
