@@ -15,7 +15,7 @@ function NavBar() {
 			<header className="boxHeather">
 				<Navbar className=" w-100 py-0" collapseOnSelect expand="lg" bg="light" variant="light">
 					<Container fluid>
-						<Link as="Navbar.Brand" to="/" className="titulo " >Aventura Wear</Link>
+						<Link as="Navbar.Brand" to="/" className="titulo" >AVENTURA WEAR</Link>
 						<Navbar.Toggle aria-controls="responsive-navbar-nav" />
 						<Navbar.Collapse id="responsive-navbar-nav">
 							<Nav className="w-100 pt-1 d-flex flex-row justify-content-evenly">
