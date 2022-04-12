@@ -59,7 +59,7 @@ const Cart = () => {
                 <Card key={item.producto.id} className="card col-2 col-md-3 mx-2 pb-3 mb-4 item item2">
                     <Card.Img variant="top" src={item.producto.imagen} /> 
                     <Card.Title>
-                        <h5 className="text-center">{item.producto.nombre}</h5>
+                        <h5 className="text-center fs-6 fs-md-5">{item.producto.nombre}</h5>
                     </Card.Title>
                     <p> Cantidad {item.cantidad}</p>
                     <Button onClick={()=>removeItem(item.producto,item.cantidad)} variant="secondary" size="sm">Borrar</Button>
@@ -72,7 +72,7 @@ const Cart = () => {
                 {carrito.map(item => (
                     <div key={item.producto.id} className="mx-4">
                         <h5 className=" itemNombre ">{item.producto.nombre}</h5>
-                        <h6 className="ms-3  itemSubTotal">| Subtotal ${item.cantidad*item.producto.precio}</h6>
+                        <h6 className="ms-md-3  itemSubTotal">| Subtotal ${item.cantidad*item.producto.precio}</h6>
                     </div>
                 ))}
                 <p className="totalCarrito mx-4">Total: ${total}</p> 

@@ -25,19 +25,17 @@ a:hover{
 }
 
 .titulo {
-    width: 30%;
-    padding: 0em 0 0 2em;
+    width: 20%;
+    text-align: start !important;
+    padding: 0em 0 0 1em;
     font-size: 2em;
 }
 .boxHeather {
-    display: flex;
-    flex-direction: row;
-    
     background-color: #f8f9fa;
 }
 .barraNav{
     margin-top: 0em;
-    width: 70%;
+    width: 80%;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
