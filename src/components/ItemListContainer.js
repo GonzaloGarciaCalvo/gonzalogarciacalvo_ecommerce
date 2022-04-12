@@ -21,7 +21,7 @@ const ItemListContainer = () =>{
     
 	useEffect(() => {
 	    objectResponse = GetData(id,);
-		console.log("objectResponse  ",objectResponse)
+		/* console.log("objectResponse  ",objectResponse) */
 		setLoading(objectResponse.loading);
 		console.log("loading  ",loading)
 		setProductos(objectResponse.productos)/* const productos = objectResponse.productos
