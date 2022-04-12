@@ -6,10 +6,11 @@ import { useParams } from "react-router-dom"
 
 
 /* const GetData = (itemId)=>{ */
-const GetData = (itemId, load, prod )=>{
+const GetData = (itemId )=>{
     /* const [loading, setLoading] = useState(true);
 	const [productos, setProductos] = useState([]);  */
  /* const {id} = useParams()   */
+    let load = true ;let prod=[];
     let productsCollection;
 	let documentos; 
     if (itemId === undefined) {
@@ -17,12 +18,13 @@ const GetData = (itemId, load, prod )=>{
     } else {
         productsCollection = query(collection(db, "productos"), where("category", "==", itemId));
     }
+
     documentos = getDocs(productsCollection); 
     documentos
         .then(respuesta => prod=(respuesta.docs.map(doc=>({itemId:doc.itemId, ...doc.data()}))))
         .catch(() => MiToast()) 
         .finally(() => load=false);
-        const objectRes = {load, prod}
+        const objectRes = [load, prod]
         return(objectRes)
 }   
     

@@ -17,11 +17,13 @@ const ItemListContainer = () =>{
 
 	/* const {productos, setProductos, loading, setLoading} = useContext(ProductContext); */
 	const {id} = useParams() 
-	let objectResponse
+	let objectResponse;
     
 	useEffect(() => {
-	    objectResponse = GetData(id, loading,productos,);
-		setLoading(objectResponse.loading)
+	    objectResponse = GetData(id,);
+		console.log("objectResponse  ",objectResponse)
+		setLoading(objectResponse.loading);
+		console.log("loading  ",loading)
 		setProductos(objectResponse.productos)/* const productos = objectResponse.productos
 		const loading =objectResponse.loading */
 		/* let productsCollection;
