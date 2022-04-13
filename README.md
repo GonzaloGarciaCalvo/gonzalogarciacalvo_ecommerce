@@ -1,3 +1,5 @@
+   [![Netlify Status](https://api.netlify.com/api/v1/badges/e2ec3474-e680-40db-a3c1-4c4ed78f933b/deploy-status)](https://app.netlify.com/sites/ornate-creponne-7f057e/deploys)
+
 # Descripción
 Proyecto Final del curso React js de Coderhouse. Se implementa un simulador de E-commerce de venta de remeras.
 Hay navegación a categoría hombre y categoría mujer, la navegación al carrito de habilita una vez seleccionado algún item.
@@ -22,6 +24,9 @@ Clonar el repositorio con git clone <url repositorio>
 Instalar npm con: npm install
 Visualizar el proyecto en servidor local con: npm start
 
+# Deploy
+https://ornate-creponne-7f057e.netlify.app/
+
 ## Diagrama
 
 App
@@ -38,3 +43,7 @@ App
              |NavBar
              |       |CartWidget
              |Carrito
+
+https://ornate-creponne-7f057e.netlify.app/Cart
+
+          
