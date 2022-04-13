@@ -6,7 +6,6 @@ const ItemCount  = ({stock, initial, onAdd}) => {
 
     const sumarCantidad = ()  =>{
         if (contador < stock) setContador(contador + 1)
-        
     }
 
     const restarCantidad = () => {
