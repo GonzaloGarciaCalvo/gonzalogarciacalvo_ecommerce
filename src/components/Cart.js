@@ -19,7 +19,6 @@ const Cart = () => {
     const [nombre, setNombre]= useState("")
     const [telefono, setTelefono] = useState("")
     const [email, setEmail] = useState("")
-    const [myForm, setMyForm] = useState(true)
     const [compraEfectuada, setCompraEfectuada]= useState(false)
     const [idFirebase, setIdFirebase] = useState("")
    
@@ -48,7 +47,6 @@ const Cart = () => {
             .then(res=> setIdFirebase(res.id)); 
             setCompraEfectuada(true)
             clear()
-            setMyForm(false)
         }
     }
     return (

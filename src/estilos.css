@@ -19,7 +19,6 @@ a:hover{
     color: gray;
 }
 
-/* HEADER */
 .bg-light {
     background-image: linear-gradient(to right, rgb(217, 230, 229) 10%,rgb(245, 240, 240) 40%);
 }
@@ -58,7 +57,6 @@ a:hover{
     background-color: transparent;
 }
 
-/* ItemListContainer */
 .listaDeProductos {
     display: flex;
     flex-direction: row;
@@ -123,8 +121,6 @@ a:hover{
     padding-bottom: 0.1em;
 }
 
-
-/* Cart*/
 .totalCarrito{
     font-size: 1.5em;
 }
