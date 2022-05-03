@@ -27,7 +27,7 @@ Visualizar el proyecto en servidor local con: npm start
 # Deploy
 https://ornate-creponne-7f057e.netlify.app/
 
-## Diagrama
+# Diagrama
 
 App
    |components
