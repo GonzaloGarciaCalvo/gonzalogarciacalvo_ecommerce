@@ -6,26 +6,25 @@ import { useParams } from "react-router-dom"
 
 
 /* const GetData = (itemId)=>{ */
-const GetData = ({itemId, loading, setLoading} )=>{
+const GetData = ({id, loading, setLoading, productos, setProductos} )=>{
     /* const [loading, setLoading] = useState(true);
 	const [productos, setProductos] = useState([]);  */
  /* const {id} = useParams()   */
-    let load = true ;let prod=[];
+    
     let productsCollection;
 	let documentos; 
-    if (itemId === undefined) {
+    if (id === undefined) {
         productsCollection = collection(db, "productos");
     } else {
-        productsCollection = query(collection(db, "productos"), where("category", "==", itemId));
+        productsCollection = query(collection(db, "productos"), where("category", "==", id));
     }
 
     documentos = getDocs(productsCollection); 
-    documentos
-        .then(respuesta => prod=(respuesta.docs.map(doc=>({itemId:doc.itemId, ...doc.data()}))))
+     return documentos //no anda
+        /* .then(respuesta => setProductos(respuesta.docs.map(doc=>({itemId:doc.itemId, ...doc.data()}))))
         .catch(() => MiToast()) 
-        .finally(() => setLoading(false));
-        /* const objectRes = [load, prod] */
-        /* return(objectRes) */
+        .finally(() => setLoading(false)); */
+        
 }   
     
 export default GetData 

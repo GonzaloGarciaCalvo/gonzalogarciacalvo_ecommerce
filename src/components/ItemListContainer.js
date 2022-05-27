@@ -3,14 +3,14 @@ import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import Spinner from 'react-bootstrap/Spinner'
 /* import { db} from "./Firebase"
-import {getDocs , collection, query, where} from "firebase/firestore"
-import { MiToast } from './MiToast' */
-import GetData from './GetData'
+import {getDocs , collection, query, where} from "firebase/firestore"*/
+import { MiToast } from './MiToast' 
+/* import GetData from './GetData' */
 /* import { ProductContext } from "./ProductContext"; */
 
 
     
-const ItemListContainer = () =>{
+const ItemListContainer = (props) =>{
 
     const [loading, setLoading] = useState(true);
 	const [productos, setProductos] = useState([]); 
@@ -20,26 +20,11 @@ const ItemListContainer = () =>{
 	let objectResponse;
     
 	useEffect(() => {
-	    objectResponse = GetData(id,);
-		/* console.log("objectResponse  ",objectResponse) */
-		setLoading(objectResponse.loading);
-		console.log("loading  ",loading)
-		setProductos(objectResponse.productos)/* const productos = objectResponse.productos
-		const loading =objectResponse.loading */
-		/* let productsCollection;
-		let documentos;  */
-	/* 	itemId, prod, sProd, load, sLoad  */
-		///* prop.GetData(id, productos, setProductos, loading, setLoading); */
-		
-		/* if (id === undefined) {
-			productsCollection = collection(db, "productos");
-		} else {
-			productsCollection = query(collection(db, "productos"), where("category", "==", id));
-		}
-		documentos = getDocs(productsCollection); 
-		documentos
+	    objectResponse = props.GetData(id, loading, setLoading, productos, setProductos);
+
+		objectResponse
 			.then(respuesta => setProductos(respuesta.docs.map(doc=>({id:doc.id, ...doc.data()}))))
-			.catch(() => MiToast()) */ //NO FUNCIONA
+			.catch(() => MiToast())  //NO FUNCIONA
 			/* .finally(() => setLoading(false)); */
 			
 	}, [id]);
