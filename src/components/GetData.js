@@ -5,11 +5,8 @@ import { useState} from 'react';
 import { useParams } from "react-router-dom"
 
 
-/* const GetData = (itemId)=>{ */
-const GetData = ({id, loading, setLoading, productos, setProductos} )=>{
-    /* const [loading, setLoading] = useState(true);
-	const [productos, setProductos] = useState([]);  */
- /* const {id} = useParams()   */
+const GetData = ({id, setProductos, setLoading})=>{
+
     
     let productsCollection;
 	let documentos; 
@@ -20,11 +17,12 @@ const GetData = ({id, loading, setLoading, productos, setProductos} )=>{
     }
 
     documentos = getDocs(productsCollection); 
-     return documentos //no anda
-        /* .then(respuesta => setProductos(respuesta.docs.map(doc=>({itemId:doc.itemId, ...doc.data()}))))
-        .catch(() => MiToast()) 
-        .finally(() => setLoading(false)); */
-        
+     return (
+         documentos
+        /* .then(respuesta => setProductos(respuesta.docs.map(doc=>({id:doc.id, ...doc.data()}))))
+        .catch(() => MiToast()).finally(() => setLoading(false)) */
+        /* documentos.then(respuesta => respuesta.docs) */
+    )
 }   
     
 export default GetData 
