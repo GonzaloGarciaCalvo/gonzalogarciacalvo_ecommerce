@@ -5,7 +5,7 @@ import { useState} from 'react';
 import { useParams } from "react-router-dom"
 
 
-const GetData = ({id, setProductos, setLoading})=>{
+const GetData = (id)=>{
 
     
     let productsCollection;

@@ -20,18 +20,19 @@ const ItemListContainer = (props) =>{
 	const {id} = useParams() 
     
 	useEffect(() => {
-		const llamadaFirebase = new Promise (
-			GetData({id}))
+
+			const data = GetData(id)
+			
 			.then(respuesta => setProductos(respuesta.docs.map(doc=>({id:doc.id, ...doc.data()}))))
 			.catch(() => MiToast())
-			/* .finally(() => setLoading(false)); */	
-	  
-			console.log('estado de loading: ', loading) 
+			.finally(() => setLoading(false)); 
+	  console.log("respuesta", productos)
+			/* console.log('estado de loading: ', loading)  */
 	}, [id]);
 
     return (
 			<>
-				{productos ? (
+				{loading ? (
 					<div className="d-flex display-row justify-content-center m-5">
 						<Spinner animation="border" role="status">
 							{" "}
