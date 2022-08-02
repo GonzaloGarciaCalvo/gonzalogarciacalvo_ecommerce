@@ -15,7 +15,7 @@ const ItemListContainer = () =>{
 	const {id} = useParams() 
 	useEffect(() => {
 		let productsCollection;
-		
+		console.log("id ", id)
 		if (id === undefined) {
 			productsCollection = collection(db, "productos");
 		} else {
@@ -29,6 +29,7 @@ const ItemListContainer = () =>{
 				console.log("error en carga de datos")
 			}) 
 			.finally(() => setLoading(false));
+			console.log("prod  ", productos)
 	},[id])
 
     return (
