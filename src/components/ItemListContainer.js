@@ -22,14 +22,15 @@ const ItemListContainer = (props) =>{
 		dataPorducts
 			.then(respuesta => {
 				setProductos(respuesta.docs.map(doc=>({id:doc.id, ...doc.data()})))
-				console.log("respuesta en efecto", respuesta)
+				console.log("productos en ILC", productos)
+				console.log("respuesta en ILC", respuesta)
 			})
 			.catch(() => MiToast())
 			.finally(() => setLoading(false)); 
-	    console.log("productos en efecto", productos)
+	    console.log("productos en ILC", productos)
 			
 			/* console.log('estado de loading: ', loading)  */
-	}, [id]);
+	}, [id], [GetData]);
 
     return (
 			<>
