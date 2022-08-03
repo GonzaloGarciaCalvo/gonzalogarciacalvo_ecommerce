@@ -2,12 +2,9 @@ import ItemList from './ItemList'
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import Spinner from 'react-bootstrap/Spinner'
-/* import { db} from "./Firebase"
-import {getDocs , collection, query, where} from "firebase/firestore"*/
 import { MiToast } from './MiToast' 
 import GetData from './GetData'
-/* import GetData from './GetData' */
-/* import { ProductContext } from "./ProductContext"; */
+
 
 
     
@@ -21,17 +18,22 @@ const ItemListContainer = (props) =>{
     console.log("id  ", id)
 	useEffect(() => {
 
-		const data = GetData(id)
-		data
-			.then(respuesta => setProductos(respuesta.docs.map(doc=>({id:doc.id, ...doc.data()}))))
+		const dataPorducts = GetData(id)
+		dataPorducts
+			.then(respuesta => {
+				setProductos(respuesta.docs.map(doc=>({id:doc.id, ...doc.data()})))
+				console.log("respuesta en efecto", respuesta)
+			})
 			.catch(() => MiToast())
 			.finally(() => setLoading(false)); 
-	  console.log("respuesta", productos)
+	    console.log("productos en efecto", productos)
+			
 			/* console.log('estado de loading: ', loading)  */
 	}, [id]);
 
     return (
 			<>
+			 
 				{loading ? (
 					<div className="d-flex display-row justify-content-center m-5">
 						<Spinner animation="border" role="status">
@@ -43,6 +45,7 @@ const ItemListContainer = (props) =>{
 				("")
 				}
 				<ItemList productos={productos} className="d-flex flex-row justify-content-center pb-5"/>
+				<h2>{id}</h2>
 			</>
 		);
 }

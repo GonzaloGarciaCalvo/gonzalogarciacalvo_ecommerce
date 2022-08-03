@@ -4,24 +4,23 @@ import { MiToast } from './MiToast'
 import { useState} from 'react';
 import { useParams } from "react-router-dom"
 
-
+//NO filtra
 const GetData = (id)=>{
-
-    
+    console.log("en GetData")
     let productsCollection;
 	let documentos; 
     if (id === undefined) {
         productsCollection = collection(db, "productos");
     } else {
+        console.log("en else de GetData")
         productsCollection = query(collection(db, "productos"), where("category", "==", id));
     }
-
-    documentos = getDocs(productsCollection); 
+    documentos = getDocs(productsCollection)
+    documentos
+    .then(documentos => console.log("else doc2 de GetData", documentos))
+    
      return (
          documentos
-        /* .then(respuesta => setProductos(respuesta.docs.map(doc=>({id:doc.id, ...doc.data()}))))
-        .catch(() => MiToast()).finally(() => setLoading(false)) */
-        /* documentos.then(respuesta => respuesta.docs) */
     )
 }   
     
