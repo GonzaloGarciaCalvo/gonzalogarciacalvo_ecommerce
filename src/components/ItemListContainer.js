@@ -3,7 +3,7 @@ import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import Spinner from 'react-bootstrap/Spinner'
 import { MiToast } from './MiToast' 
-import GetData from './GetData'
+import {GetAllData, GetDataByCategory} from './GetData'
 
 
 
@@ -14,23 +14,31 @@ const ItemListContainer = (props) =>{
 	const [productos, setProductos] = useState([]); 
 
 	/* const {productos, setProductos, loading, setLoading} = useContext(ProductContext); */
-	const {id} = useParams() 
-    console.log("id  ", id)
-	useEffect(() => {
+	const {category} = useParams() 
+    console.log("category en ILC ", category)
 
-		const dataPorducts = GetData(id)
-		dataPorducts
+	const GetData = (category)=> {
+		let dataProducts;
+		if (category === undefined) {
+			dataProducts = GetAllData()
+		}
+		if (category !== undefined) {
+			dataProducts = GetDataByCategory(category)
+		}
+		dataProducts
 			.then(respuesta => {
 				setProductos(respuesta.docs.map(doc=>({id:doc.id, ...doc.data()})))
 				console.log("productos en ILC", productos)
 				console.log("respuesta en ILC", respuesta)
 			})
-			.catch(() => MiToast())
+			/* .catch(() => MiToast()) */
 			.finally(() => setLoading(false)); 
 	    console.log("productos en ILC", productos)
-			
-			/* console.log('estado de loading: ', loading)  */
-	}, [id], [GetData]);
+	}
+
+	useEffect(() => {
+    GetData(category)
+	},[category]);
 
     return (
 			<>
@@ -46,7 +54,7 @@ const ItemListContainer = (props) =>{
 				("")
 				}
 				<ItemList productos={productos} className="d-flex flex-row justify-content-center pb-5"/>
-				<h2>{id}</h2>
+				<h2>{category}</h2>
 			</>
 		);
 }
