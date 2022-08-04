@@ -33,8 +33,7 @@ const ItemListContainer = (props) =>{
 	}, [id], [GetData]);
 
     return (
-			<>
-			 
+			<> 
 				{loading ? (
 					<div className="d-flex display-row justify-content-center m-5">
 						<Spinner animation="border" role="status">

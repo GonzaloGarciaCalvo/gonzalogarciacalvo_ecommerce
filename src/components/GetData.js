@@ -16,7 +16,7 @@ const GetData = (id)=>{
         console.log("productsCollection en if de GetData", productsCollection)
     } else if (id !== undefined) {
         console.log("en else de GetData")
-        productsCollection = query(collection(db, "productos"), where("category", "==", id));
+        productsCollection =  query(collection(db, "productos"), where("category", "==", id));
         console.log("productsCollection en else de GetData", productsCollection)
     }
     documentos = getDocs(productsCollection)
