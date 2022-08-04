@@ -1,6 +1,7 @@
 import Item from './Item'
 
 const ItemList = (prop) =>{
+    console.log("prop en IL ", prop)
     return (
         <section className='listaDeProductos'>
             {prop.productos.map((producto,indice)=>{

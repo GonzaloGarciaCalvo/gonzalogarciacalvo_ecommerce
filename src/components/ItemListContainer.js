@@ -17,7 +17,22 @@ const ItemListContainer = (props) =>{
 	const {category} = useParams() 
     console.log("category en ILC ", category)
 
-	const GetData = (category)=> {
+		const getData = async () => {
+			try {
+				setLoading(true);
+				console.log("category en getData ILC ", category)
+				const value = (category)
+					? await GetDataByCategory(category)
+					: await GetAllData();
+				setProductos(value);
+				setLoading(false);
+			} catch (error) {
+				console.error('components/ItemListContainer/getProductsFromDb', error);
+			}
+			console.log("productos en ILC", productos)
+			// LA quierie de GetDataByCategory llega vacia
+		};
+	/* const GetData = async (category)=> {
 		let dataProducts;
 		if (category === undefined) {
 			dataProducts = GetAllData()
@@ -31,13 +46,14 @@ const ItemListContainer = (props) =>{
 				console.log("productos en ILC", productos)
 				console.log("respuesta en ILC", respuesta)
 			})
-			/* .catch(() => MiToast()) */
+			.catch(() => MiToast())
 			.finally(() => setLoading(false)); 
 	    console.log("productos en ILC", productos)
-	}
+			console.log("loading ", loading)
+	} */
 
 	useEffect(() => {
-    GetData(category)
+    getData()
 	},[category]);
 
     return (
