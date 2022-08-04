@@ -14,23 +14,44 @@ const ItemListContainer = (props) =>{
 	const [productos, setProductos] = useState([]); 
 
 	/* const {productos, setProductos, loading, setLoading} = useContext(ProductContext); */
-	const {id} = useParams() 
-    console.log("id  ", id)
-	useEffect(() => {
+	const { id } = useParams() 
+    /* console.log("id en ILC ", id) */
 
-		const dataPorducts = GetData(id)
-		dataPorducts
+	const GetDataMiddleware = ()=> {
+		let allProducts = GetData(id)
+		allProducts
 			.then(respuesta => {
 				setProductos(respuesta.docs.map(doc=>({id:doc.id, ...doc.data()})))
-				console.log("productos en ILC", productos)
-				console.log("respuesta en ILC", respuesta)
+				setLoading(false)
+				/* console.log("productos en ILC", productos)  */
+				/*console.log("respuesta en ILC", respuesta) */
 			})
 			.catch(() => MiToast())
-			.finally(() => setLoading(false)); 
-	    console.log("productos en ILC", productos)
-			
-			/* console.log('estado de loading: ', loading)  */
-	}, [id], [GetData]);
+			/* .finally(() => setLoading(false));  */
+	    /* console.log("productos en ILC", productos) */
+
+			if (id !== undefined) {
+				const filtrado = productos.filter(item=> item.category === id)
+				console.log("FILTRADO", filtrado)
+				 setProductos(filtrado)
+				console.log("prod filtrados", productos)
+				console.log("id en ILC ", id)
+			}
+	}
+	/* const filterProducts = (prodId)=>{
+		if (prodId !== undefined) {
+			const filtrado = productos.filter(item=> item.category === prodId)
+			console.log("FILTRADO", filtrado)
+			 setProductos(filtrado)
+			console.log("prod filtrados", productos)
+		}
+	} */
+
+	useEffect(() => {
+    GetDataMiddleware()
+		/* filterProducts(id) */
+		/* console.log("en useEffect") */
+	},[id]);
 
     return (
 			<>
@@ -46,7 +67,7 @@ const ItemListContainer = (props) =>{
 				("")
 				}
 				<ItemList productos={productos} className="d-flex flex-row justify-content-center pb-5"/>
-				<h2>{id}</h2>
+				
 			</>
 		);
 }
