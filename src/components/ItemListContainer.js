@@ -16,27 +16,25 @@ const ItemListContainer = (props) =>{
 	/* const {productos, setProductos, loading, setLoading} = useContext(ProductContext); */
 	const { id } = useParams() 
     /* console.log("id en ILC ", id) */
+		
 
 	const GetDataMiddleware = ()=> {
-		let allProducts = GetData(id)
-		allProducts
-			.then(respuesta => {
-				setProductos(respuesta.docs.map(doc=>({id:doc.id, ...doc.data()})))
-				setLoading(false)
-				/* console.log("productos en ILC", productos)  */
-				/*console.log("respuesta en ILC", respuesta) */
-			})
-			.catch(() => MiToast())
-			/* .finally(() => setLoading(false));  */
-	    /* console.log("productos en ILC", productos) */
-
-			if (id !== undefined) {
-				const filtrado = productos.filter(item=> item.category === id)
-				console.log("FILTRADO", filtrado)
-				 setProductos(filtrado)
-				console.log("prod filtrados", productos)
-				console.log("id en ILC ", id)
-			}
+		let allProducts = []
+		console.log(GetData)
+			GetData(id)
+				.then(productos => {
+					console.log("id en getdata ILC  ", id)
+					setLoading(false)
+					filtroProductos(productos, id)
+				})
+				.catch(() => MiToast())
+				/* .finally(() => setLoading(false));  */
+		 console.log("allProducts IIII ", allProducts)
+	}
+	const filtroProductos = (prod, id) => {
+		let filtrado = prod.filter(item=> item.cat === id)
+		setProductos(filtrado)
+		return filtrado
 	}
 	/* const filterProducts = (prodId)=>{
 		if (prodId !== undefined) {

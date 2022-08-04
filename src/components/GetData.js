@@ -6,11 +6,13 @@ import { useParams } from "react-router-dom" */
 
 //NO filtra
 const GetData = async (category)=>{
-    console.log("category en getdata",category)
     let productsCollection = collection(db, "productos");
     let documentos = await getDocs(productsCollection)
-    console.log("documentos en if de GetData", documentos)
-    return (documentos)
+	const productosFormateados = documentos.docs.map(doc=>({
+						id:doc.id, ...doc.data()
+	}))
+    console.log("prodFormateados en if de GetData", productosFormateados)
+    return (productosFormateados)
     
 }   
     
