@@ -21,10 +21,6 @@ snapshot.forEach((doc) => {
     docSnapshot
     .then(docSnapshot => console.log("docSnapshot de GetALLData", docSnapshot))
     return (docSnapshot) */
-  
-
-    try{
-
         const ref = collection(db, "productos");
         console.log("ref en if de GetALLData", ref)
         const docSnapshot = await getDocs(ref)
@@ -34,26 +30,24 @@ snapshot.forEach((doc) => {
             id: doc.id,
             ...doc.data(),
         }));
-    } catch (error) {
-        console.error('GetAllData', error);
-    }
 }
     
     
 
 export async function GetDataByCategory (category){
-    try {
         console.log("category en GetDataByCategory", category)
         const q = query(collection(db, "productos"), where("category", "==", category));
+        console.log("q:   ", q)
         const docSnapshot = await getDocs(q)
-        /* docSnapshot
-        .then(docSnapshot => console.log("docSnapshot de GetDataByCategory", docSnapshot)) */
-        return docSnapshot.docs.map(doc => ({
+        console.log("docSnapshot:  ", docSnapshot)
+        const test =docSnapshot.docs.map(doc => ({
+            id: doc.id,
+            ...doc.data()
+        }))
+        console.log("test: ", test)
+        /* return docSnapshot.docs.map(doc => ({
             id: doc.id,
             ...doc.data(),
-        }));
-    } catch(error){
-        console.error('GetDataByCategory', error);
+        })); */
+        return test 
     }
-}  
-/* GetDataByCategory() */
