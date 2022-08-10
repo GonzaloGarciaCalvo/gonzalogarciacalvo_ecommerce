@@ -24,6 +24,7 @@ snapshot.forEach((doc) => {
         const ref = collection(db, "productos");
         console.log("ref en if de GetALLData", ref)
         const docSnapshot = await getDocs(ref)
+        console.log("docSnapshot GetAll:  ", docSnapshot)
         /* docSnapshot
         .then(docSnapshot => console.log("docSnapshot de GetALLData", docSnapshot)) */
         return docSnapshot.docs.map(doc => ({
@@ -39,7 +40,7 @@ export async function GetDataByCategory (category){
         const q = query(collection(db, "productos"), where("category", "==", category));
         console.log("q:   ", q)
         const docSnapshot = await getDocs(q)
-        console.log("docSnapshot:  ", docSnapshot)
+        console.log("docSnapshot:  ", docSnapshot._snapshot)
         const test =docSnapshot.docs.map(doc => ({
             id: doc.id,
             ...doc.data()
