@@ -16,6 +16,7 @@ const ItemListContainer = (props) =>{
 	/* const {productos, setProductos, loading, setLoading} = useContext(ProductContext); */
 	const {id} = useParams() 
     console.log("id  ", id)
+
 	useEffect(() => {
 
 		const dataPorducts = GetData(id)
@@ -23,14 +24,12 @@ const ItemListContainer = (props) =>{
 			.then(respuesta => {
 				setProductos(respuesta.docs.map(doc=>({id:doc.id, ...doc.data()})))
 				console.log("productos en ILC", productos)
-				console.log("respuesta en ILC", respuesta)
 			})
 			.catch(() => MiToast())
 			.finally(() => setLoading(false)); 
-	    console.log("productos en ILC", productos)
-			
+	    console.log("productos en ILC", productos)	
 			/* console.log('estado de loading: ', loading)  */
-	}, [id], [GetData]);
+	}, [id]);
 
     return (
 			<> 
