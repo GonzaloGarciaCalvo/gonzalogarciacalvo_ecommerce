@@ -1,8 +1,8 @@
 import {db} from "./Firebase"
-import {getDocs , collection, query, where} from "firebase/firestore"
+import {getDocs , collection, query, where, doc, getDoc} from "firebase/firestore"
 
 
-const GetData = (id)=>{
+export const getData = (id)=>{
     let productsCollection;
 	let documentos; 
     if (id === undefined) {    
@@ -20,5 +20,17 @@ const GetData = (id)=>{
         documentos
     )
 }   
+
+export const getItem =(id)=>{
     
-export default GetData 
+    const docRef = doc(db, "productos", id);
+    const docSnap =  getDoc(docRef);
+    /*docSnap
+     .then((respuesta) => {
+        const itemRespuesta = {id: respuesta.id, ...respuesta.data()}
+        setProducto(itemRespuesta)
+    }) */
+    return docSnap
+    }
+    
+

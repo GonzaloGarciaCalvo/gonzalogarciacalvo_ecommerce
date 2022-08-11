@@ -21,6 +21,7 @@ a:hover{
 }
 
 /* HEADER */
+
 .titulo {
     width: 30%;
     padding: 0em 0 0 2em;
@@ -29,8 +30,9 @@ a:hover{
 .boxHeather {
     display: flex;
     flex-direction: row;
-    
-    background-color: #f8f9fa;
+}
+.navbar-light {
+    background-image: linear-gradient(to right, rgb(217, 230, 229) 10%,rgb(245, 240, 240) 40%);
 }
 .barraNav{
     margin-top: 0em;

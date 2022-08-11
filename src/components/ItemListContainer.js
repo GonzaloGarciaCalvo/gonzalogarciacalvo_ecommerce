@@ -3,7 +3,7 @@ import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import Spinner from 'react-bootstrap/Spinner'
 import { MiToast } from './MiToast' 
-import GetData from './GetData'
+import {getData} from './GetData'
 
 
 
@@ -17,7 +17,7 @@ const ItemListContainer = (props) =>{
 
 	useEffect(() => {
 
-		const dataPorducts = GetData(categoryId)
+		const dataPorducts = getData(categoryId)
 		dataPorducts
 			.then(respuesta => {
 				setProductos(respuesta.docs.map(doc=>({id:doc.id, ...doc.data()})))
