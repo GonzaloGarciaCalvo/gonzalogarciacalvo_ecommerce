@@ -7,6 +7,7 @@ import { ToastContainer } from "react-toastify"
 import MiProvider from "./components/CartContext"
 
 
+
 function App() {
 
     return (
@@ -14,8 +15,8 @@ function App() {
 				<BrowserRouter>
 					<NavBar />
 					<Routes>
-						<Route path="/" element={<ItemListContainer />} />
-						<Route path="/category/:id" element={<ItemListContainer />} />
+						<Route path="/" element={<ItemListContainer  />} />
+						<Route path="/category/:categoryId" element={<ItemListContainer/>} />
 						<Route path="/cart" element={<Cart />} />
 						<Route path="/item/:id" element={<ItemDetailContainer />} />
 					</Routes>
