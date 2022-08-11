@@ -10,26 +10,22 @@ import GetData from './GetData'
     
 const ItemListContainer = (props) =>{
 
-    const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
 	const [productos, setProductos] = useState([]); 
 
-	/* const {productos, setProductos, loading, setLoading} = useContext(ProductContext); */
-	const {id} = useParams() 
-    console.log("id  ", id)
+	const {categoryId} = useParams() 
 
 	useEffect(() => {
 
-		const dataPorducts = GetData(id)
+		const dataPorducts = GetData(categoryId)
 		dataPorducts
 			.then(respuesta => {
 				setProductos(respuesta.docs.map(doc=>({id:doc.id, ...doc.data()})))
-				console.log("productos en ILC", productos)
 			})
 			.catch(() => MiToast())
 			.finally(() => setLoading(false)); 
-	    console.log("productos en ILC", productos)	
-			/* console.log('estado de loading: ', loading)  */
-	}, [id]);
+	}, [categoryId]);
+
 
     return (
 			<> 
@@ -44,7 +40,7 @@ const ItemListContainer = (props) =>{
 				("")
 				}
 				<ItemList productos={productos} className="d-flex flex-row justify-content-center pb-5"/>
-				<h2>{id}</h2>
+				<h2>{categoryId}</h2>
 			</>
 		);
 }
