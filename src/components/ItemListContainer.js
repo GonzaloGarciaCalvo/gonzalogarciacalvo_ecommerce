@@ -1,32 +1,12 @@
 import ItemList from './ItemList'
-import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import Spinner from 'react-bootstrap/Spinner'
-import { MiToast } from './MiToast' 
-import { getData } from '../services/GetData'
 import { useGetData } from '../hooks/useGetData'
-
-/* import {getData} from './GetData' */
-
 
 const ItemListContainer = (props) =>{
 
-  /* const [loading, setLoading] = useState(true);
-	const [productos, setProductos] = useState([]);  */
-
 	const {categoryId} = useParams() 
-
-	/* useEffect(() => {
-		const dataPorducts = getData(categoryId)
-		dataPorducts
-			.then(respuesta => {
-				setProductos(respuesta.docs.map(doc=>({id:doc.id, ...doc.data()})))
-			})
-			.catch(() => MiToast())
-			.finally(() => setLoading(false)); 
-	}, [categoryId]); */
 	const {loading, productos} = useGetData(categoryId)
-
 
     return (
 			<> 

@@ -1,11 +1,8 @@
-/* import {db} from "./Firebase" */
-
 import {getDocs , collection, query, where, doc, getDoc} from "firebase/firestore"
 import { db } from "../services/Firebase";
 
-
 export const getData = (id)=>{
-    let productsCollection;
+  let productsCollection;
   let documentos; 
     if (id === undefined) {    
         productsCollection = collection(db, "productos");
@@ -13,8 +10,6 @@ export const getData = (id)=>{
         productsCollection =  query(collection(db, "productos"), where("category", "==", id));
     }
     documentos = getDocs(productsCollection)
-
-    console.log(getDocs)
     documentos
     .then(documentos => console.log("documentos de GetData", documentos))
     
@@ -27,10 +22,5 @@ export const getItem =(id)=>{
     
     const docRef = doc(db, "productos", id);
     const docSnap =  getDoc(docRef);
-    /*docSnap
-     .then((respuesta) => {
-        const itemRespuesta = {id: respuesta.id, ...respuesta.data()}
-        setProducto(itemRespuesta)
-    }) */
     return docSnap
     }

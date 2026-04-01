@@ -5,7 +5,6 @@ import { Link , NavLink } from "react-router-dom";
 import { useContext } from "react"
 import { contextoCarrito } from "./CartContext"
 
-
 function NavBar() {
 
 	const resultado = useContext(contextoCarrito)
