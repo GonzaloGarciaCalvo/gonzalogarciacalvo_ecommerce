@@ -1,10 +1,12 @@
-import {db} from "./Firebase"
+/* import {db} from "./Firebase" */
+
 import {getDocs , collection, query, where, doc, getDoc} from "firebase/firestore"
+import { db } from "../services/Firebase";
 
 
 export const getData = (id)=>{
     let productsCollection;
-	let documentos; 
+  let documentos; 
     if (id === undefined) {    
         productsCollection = collection(db, "productos");
     } else if (id !== undefined) { 

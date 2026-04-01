@@ -1,20 +1,20 @@
 import Container from 'react-bootstrap/Container'
 import ItemDetail from './ItemDetail'
-import { useState, useEffect } from "react"
+/* import { useState, useEffect } from "react" */
 import { useParams } from "react-router-dom"
-import { MiToast } from './MiToast' 
+/* import { MiToast } from './MiToast'  */
 import Spinner from 'react-bootstrap/Spinner'
-import { getItem } from './GetData'
-
-
+/* import { getItem } from '../services/GetData' */
+import { useGetItem } from '../hooks/useGetItem'
+/* import { getItem } from './GetData' */
 
 const ItemDetailContainer = (props) =>{
     
-    const [loading, setLoading] = useState(true)
-    const [producto, setProducto] = useState({}) 
+    /* const [loading, setLoading] = useState(true)
+    const [producto, setProducto] = useState({})  */
     const {id} = useParams()
     
-    useEffect(()=>{
+    /* useEffect(()=>{
         getItem(id)
         .then((respuesta) => {
             const itemRespuesta = {id: respuesta.id, ...respuesta.data()}
@@ -24,14 +24,19 @@ const ItemDetailContainer = (props) =>{
         .finally(() => {
             setLoading(false);
         });
-        
-    },[id])
+    },[id]) */
+    const {loading, producto} = useGetItem(id)
     return (
         <Container fluid as="section" className="d-flex flex-row justify-content-center pb-5" >
-        { loading?   <div className='d-flex display-row justify-content-start m-5'>
-                                <Spinner animation="border" role="status"> </Spinner>
-								<p className="ms-4 mt-1">Cargando...</p>
-					</div> : <ItemDetail producto={producto} />}
+            { loading
+                ?   
+                <div className='d-flex display-row justify-content-start m-5'>
+                    <Spinner animation="border" role="status"> </Spinner>
+                    <p className="ms-4 mt-1">Cargando...</p>
+                </div> 
+                : 
+                <ItemDetail producto={producto} />
+            }
         </Container> 
     )
 }

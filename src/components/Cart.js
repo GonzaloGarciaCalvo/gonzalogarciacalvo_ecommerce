@@ -4,10 +4,11 @@ import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import { Link } from "react-router-dom";
 import { addDoc , collection , serverTimestamp } from "firebase/firestore"
-import { db } from "./Firebase"
+/* import { db } from "./Firebase" */
 import Form from "./Form";
 import validator from 'validator';
 import Container from 'react-bootstrap/Container'
+import { db } from "../services/Firebase";
 
 const Cart = () => {
     const resultado = useContext(contextoCarrito)

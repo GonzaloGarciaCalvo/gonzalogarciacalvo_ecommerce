@@ -9,7 +9,6 @@ import { contextoCarrito } from "./CartContext"
 function NavBar() {
 
 	const resultado = useContext(contextoCarrito)
-    const carrito = resultado.carrito
 
     return (
 			<header className="boxHeather">
