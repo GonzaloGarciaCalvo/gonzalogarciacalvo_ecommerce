@@ -23,7 +23,7 @@ a:hover{
 
 .titulo {
     width: 30%;
-    padding: 0em 0 0 2em;
+    /* padding: 0em 0 0 2em; */
     font-size: 2em;
 }
 .boxHeather {
@@ -112,7 +112,7 @@ a:hover{
 
 /* CART*/
 .totalCarrito{
-    font-size: 1.5em;
+    font-size: 1.25em;
 }
 .itemNombre {
     width: 14em;
@@ -128,4 +128,34 @@ a:hover{
 /* Item */
 .card-img-top {
     min-height: 13rem;
+}
+
+/*  Form */
+input {
+    max-width: 28em;
+}
+
+@media (width < 992px) {
+    .titulo {
+        width: 80%;
+    }
+    a {
+        padding: 0.1em 2em 0.1em 2em;
+    }
+}
+@media (width < 576px) {
+    .titulo {
+        width: 80%;
+    }
+    a {
+        padding: 0.1em 0em 0.1em 0em;
+    }
+}
+@media (width >= 992px) {
+    .titulo {
+        width: 30%;
+    }
+    a {
+        padding: 0.1em 2em 0.1em 2em;
+    }
 }
