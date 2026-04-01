@@ -123,5 +123,9 @@ a:hover{
     font-size: 1.2em;
     width: 8em;
     vertical-align: baseline;
+}
 
+/* Item */
+.card-img-top {
+    min-height: 13rem;
 }

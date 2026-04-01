@@ -1,10 +1,10 @@
 import { useContext, useState } from "react"
-import { contextoCarrito } from "./CartContext"
+import { contextoCarrito } from "../components/CartContext"
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import { Link } from "react-router-dom";
 import { addDoc , collection , serverTimestamp } from "firebase/firestore"
-import Form from "./Form";
+import Form from "../components/Form";
 import validator from 'validator';
 import Container from 'react-bootstrap/Container'
 import { db } from "../services/Firebase";

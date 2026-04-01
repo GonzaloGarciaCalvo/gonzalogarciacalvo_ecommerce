@@ -1,5 +1,5 @@
 import Container from 'react-bootstrap/Container'
-import ItemDetail from './ItemDetail'
+import ItemDetail from '../components/ItemDetail'
 import { useParams } from "react-router-dom"
 import Spinner from 'react-bootstrap/Spinner'
 import { useGetItem } from '../hooks/useGetItem'

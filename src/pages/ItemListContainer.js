@@ -1,4 +1,4 @@
-import ItemList from './ItemList'
+import ItemList from '../components/ItemList'
 import { useParams } from "react-router-dom"
 import Spinner from 'react-bootstrap/Spinner'
 import { useGetData } from '../hooks/useGetData'
