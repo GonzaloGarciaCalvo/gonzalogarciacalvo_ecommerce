@@ -124,6 +124,7 @@ a:hover{
 .itemNombre {
     width: 14em;
     display: inline-block;
+    font-size: 1.2em;
 }
 .itemSubTotal {
     display: inline;
@@ -156,11 +157,23 @@ input {
     }
 }
 @media (width < 576px) {
+    a {
+        font-size: 1em;
+        min-width: 4rem;
+    }
     .titulo {
-        width: 80%;
+        width: 75%;
     }
     a {
         padding: 0.1em 0em 0.1em 0em;
+    }
+    .itemNombre{
+        font-size: 1em;
+        width:12.5rem
+    }
+    .itemSubTotal {
+        font-size: 1em;
+        width:10rem
     }
 }
 @media (width >= 992px) {

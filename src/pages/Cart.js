@@ -8,6 +8,7 @@ import Form from "../components/Form";
 import validator from "validator";
 import Container from "react-bootstrap/Container";
 import { db } from "../services/Firebase";
+import CartItem from "../components/CartItem";
 
 const Cart = () => {
   const { carrito, total, clear, removeItem } = useContext(contextoCarrito);
@@ -44,44 +45,27 @@ const Cart = () => {
   return (
     <Container as="main">
       <h1 className="mt-3 fs-2"> Carrito</h1>
-      <div className="d-flex flex-row justify-content-evenly mt-3">
+      <div className="d-flex flex-row justify-content-evenly mt-3 flex-wrap">
         {carrito.map((item) => (
-          <Card
-            key={item.producto.id}
-            className="card col-2 col-md-3 mx-2 pb-3 mb-4 item item2"
-          >
-            <Card.Img variant="top" src={item.producto.imagen} />
-            <Card.Title>
-              <h5 className="text-center fs-6 fs-md-5">
-                {item.producto.nombre}
-              </h5>
-            </Card.Title>
-            <p> Cantidad {item.cantidad}</p>
-            <Button
-              onClick={() => removeItem(item.producto, item.cantidad)}
-              variant="secondary"
-              size="sm"
-            >
-              Borrar
-            </Button>
-          </Card>
+          <CartItem key={item.producto.id} item={item} removeItem={removeItem} />
+          
         ))}
       </div>
       {carrito.length ? (
         <section className="d-flex flex-column align-items-center">
           <div className="my-3">
             {carrito.map((item) => (
-              <article key={item.producto.id} className="mx-4 my-1">
-                <h5 className="itemNombre ">{item.producto.nombre} </h5>
-                <h6 className="ms-md-3  itemSubTotal">
-                  <span className=" ms-4 ps-2 border-start border-primary border-2">
+              <article key={item.producto.id} className="mx-2 mx-sm-4  my-1">
+                <p className="itemNombre ">{item.producto.nombre} </p>
+                <p className="ms-md-3  itemSubTotal">
+                  <span className="d-inline-block ms-0 ms-sm-4 ps-2 border-start border-primary border-2">
                     Subtotal ${item.cantidad * item.producto.precio}
                   </span>
-                </h6>
+                </p>
               </article>
             ))}
 
-            <p className="totalCarrito mx-4">Total: ${total}</p>
+            <p className="totalCarrito mx-2 mx-sm-4">Total: ${total}</p>
           </div>
           <div className="d-flex flex-column justify-content-center">
             <Form
