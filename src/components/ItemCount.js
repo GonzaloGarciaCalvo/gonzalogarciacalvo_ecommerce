@@ -21,7 +21,6 @@ const ItemCount  = ({stock, initial, onAdd}) => {
     
     return (
         <div>
-            
             <div className='d-flex flex-direction-row justify-content-evenly'>
             <Button variant="secondary" size="sm" onClick={sumarCantidad} className=" btnCounter btn-sm"> + </Button>
             <p className='text-center'>Agregados : {contador}</p>

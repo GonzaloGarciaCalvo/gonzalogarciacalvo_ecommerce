@@ -4,8 +4,15 @@
     box-sizing: border-box;
 }
 
-html , body , #root {
-    height: 100vh;
+html , body  {
+    height: 100%;
+}
+/* body {
+    display: flex;
+    flex-direction: column;
+}  */
+main {
+    min-height: calc(100vh - 55px)
 }
 
 a {
@@ -133,6 +140,11 @@ a:hover{
 /*  Form */
 input {
     max-width: 28em;
+    border: 1px solid black;
+    padding-left:0.25rem;
+    &::placeholder {
+        font-size: 1em;
+    }   
 }
 
 @media (width < 992px) {

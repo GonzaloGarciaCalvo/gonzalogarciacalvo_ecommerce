@@ -17,10 +17,7 @@ const Cart = () => {
     const [email, setEmail] = useState("")
     const [compraEfectuada, setCompraEfectuada]= useState(false)
     const [idFirebase, setIdFirebase] = useState("")
-   
-    /* const enviarDatos = (event) => {
-        event.preventDefault()
-    }  */
+
 
     const validaNombre = validator.isAlpha(nombre,"es-ES", {ignore:" "})
     const validaTelefono = validator.isNumeric(telefono)
@@ -46,10 +43,12 @@ const Cart = () => {
             clear()
         }
     }
+
+    console.log("carrito: ", carrito)
     return (
         <Container as="main">
-            <h1 className="m-4 fs-2" > Carrito</h1> 
-            <div className="d-flex flex-row justify-content-evenly mt-5">
+            <h1 className="mt-3 fs-2" > Carrito</h1> 
+            <div className="d-flex flex-row justify-content-evenly mt-3">
             {carrito.map(item => (
                 <Card key={item.producto.id} className="card col-2 col-md-3 mx-2 pb-3 mb-4 item item2">
                     <Card.Img variant="top" src={item.producto.imagen} /> 
@@ -58,6 +57,7 @@ const Cart = () => {
                     </Card.Title>
                     <p> Cantidad {item.cantidad}</p>
                     <Button onClick={()=>removeItem(item.producto,item.cantidad)} variant="secondary" size="sm">Borrar</Button>
+                    <h2>id: {item.producto.id}</h2>
                 </Card>
             ))
             }
