@@ -1,11 +1,11 @@
-import { Navbar, Container, Nav } from "react-bootstrap";
-import CartWidget from "./CartWidget";
-import { Link, NavLink } from "react-router-dom";
-import { useContext } from "react";
-import { contextoCarrito } from "./CartContext";
+import { Navbar, Container, Nav } from "react-bootstrap"
+import CartWidget from "./CartWidget"
+import { Link, NavLink } from "react-router-dom"
+import { useContext } from "react"
+import { contextoCarrito } from "./CartContext"
 
 function NavBar() {
-  const resultado = useContext(contextoCarrito);
+  const resultado = useContext(contextoCarrito)
 
   return (
     <header className="boxHeather">
@@ -53,7 +53,7 @@ function NavBar() {
         </Container>
       </Navbar>
     </header>
-  );
+  )
 }
 
-export default NavBar;
+export default NavBar

@@ -1,12 +1,12 @@
-import ItemList from "../components/ItemList";
-import { useParams } from "react-router-dom";
-import Spinner from "react-bootstrap/Spinner";
-import { useGetData } from "../hooks/useGetData";
-import Container from "react-bootstrap/Container";
+import ItemList from "../components/ItemList"
+import { useParams } from "react-router-dom"
+import Spinner from "react-bootstrap/Spinner"
+import { useGetData } from "../hooks/useGetData"
+import Container from "react-bootstrap/Container"
 
-const ItemListContainer = (props) => {
-  const { categoryId } = useParams();
-  const { loading, productos } = useGetData(categoryId);
+const ItemListContainer = () => {
+  const { categoryId } = useParams()
+  const { loading, productos } = useGetData(categoryId)
   if (loading) {
     return (
       <Container
@@ -21,7 +21,7 @@ const ItemListContainer = (props) => {
         />
         <p className="ms-4 p-0 m-0">Cargando...</p>
       </Container>
-    );
+    )
   }
   return (
     <Container as="main">
@@ -30,7 +30,7 @@ const ItemListContainer = (props) => {
         className="d-flex flex-row justify-content-center pb-5"
       />
     </Container>
-  );
-};
+  )
+}
 
-export default ItemListContainer;
+export default ItemListContainer

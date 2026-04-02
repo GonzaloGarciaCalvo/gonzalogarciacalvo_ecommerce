@@ -1,11 +1,11 @@
-import cart from "../cart.png";
-import { NavLink } from "react-router-dom";
-import { useContext } from "react";
-import { contextoCarrito } from "./CartContext";
+import cart from "../cart.png"
+import { NavLink } from "react-router-dom"
+import { useContext } from "react"
+import { contextoCarrito } from "./CartContext"
 
 const CartWidget = () => {
-  const resultado = useContext(contextoCarrito);
-  const cantidadDeItems = resultado.cantidadDeItems;
+  const resultado = useContext(contextoCarrito)
+  const cantidadDeItems = resultado.cantidadDeItems
 
   return (
     <NavLink
@@ -21,6 +21,6 @@ const CartWidget = () => {
         <p className=" pb-0">: {cantidadDeItems}</p>
       </div>
     </NavLink>
-  );
-};
-export default CartWidget;
+  )
+}
+export default CartWidget

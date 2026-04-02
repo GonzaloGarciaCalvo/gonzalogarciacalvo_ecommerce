@@ -1,21 +1,21 @@
-import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
-import ItemCount from "./ItemCount";
-import { Link } from "react-router-dom";
-import { useState, useContext } from "react";
-import { contextoCarrito } from "./CartContext";
+import Button from "react-bootstrap/Button"
+import Card from "react-bootstrap/Card"
+import ItemCount from "./ItemCount"
+import { Link } from "react-router-dom"
+import { useState, useContext } from "react"
+import { contextoCarrito } from "./CartContext"
 
 const ItemDetail = ({ producto }) => {
-  const resultado = useContext(contextoCarrito);
-  const addItem = resultado.addItem;
-  const [seleccionado, setSeleccionado] = useState(false);
+  const resultado = useContext(contextoCarrito)
+  const addItem = resultado.addItem
+  const [seleccionado, setSeleccionado] = useState(false)
 
   const onAdd = (value) => {
-    if (value !== undefined) setSeleccionado(value);
-  };
+    if (value !== undefined) setSeleccionado(value)
+  }
   const getCount = () => {
-    addItem(producto, seleccionado);
-  };
+    addItem(producto, seleccionado)
+  }
 
   return (
     <Card as="section" className=" col-md-6  detalleItem mt-5">
@@ -29,7 +29,7 @@ const ItemDetail = ({ producto }) => {
         {seleccionado ? (
           <Button
             as={Link}
-            to={`/Cart`}
+            to={"/Cart"}
             onClick={getCount}
             variant="secondary"
             size="sm"
@@ -41,6 +41,6 @@ const ItemDetail = ({ producto }) => {
         )}
       </Card.Body>
     </Card>
-  );
-};
-export default ItemDetail;
+  )
+}
+export default ItemDetail

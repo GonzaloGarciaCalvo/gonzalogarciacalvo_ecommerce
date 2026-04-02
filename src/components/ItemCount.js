@@ -1,21 +1,21 @@
-import { useState } from "react";
-import Button from "react-bootstrap/Button";
+import { useState } from "react"
+import Button from "react-bootstrap/Button"
 const ItemCount = ({ stock, initial, onAdd }) => {
-  const [contador, setContador] = useState(initial);
+  const [contador, setContador] = useState(initial)
 
   const sumarCantidad = () => {
-    if (contador < stock) setContador(contador + 1);
-  };
+    if (contador < stock) setContador(contador + 1)
+  }
 
   const restarCantidad = () => {
-    if (contador > 1) setContador(contador - 1);
-  };
+    if (contador > 1) setContador(contador - 1)
+  }
 
   const agregarAlCarrito = () => {
     if (contador <= stock && contador > 0) {
-      onAdd(contador);
+      onAdd(contador)
     }
-  };
+  }
 
   return (
     <div>
@@ -50,7 +50,7 @@ const ItemCount = ({ stock, initial, onAdd }) => {
         Agregar al carrito
       </Button>
     </div>
-  );
-};
+  )
+}
 
-export default ItemCount;
+export default ItemCount

@@ -1,6 +1,6 @@
-import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
-import { Link } from "react-router-dom";
+import Card from "react-bootstrap/Card"
+import Button from "react-bootstrap/Button"
+import { Link } from "react-router-dom"
 
 const Item = ({ producto }) => {
   return (
@@ -25,7 +25,7 @@ const Item = ({ producto }) => {
         </Button>
       </Card.Body>
     </Card>
-  );
-};
+  )
+}
 
-export default Item;
+export default Item

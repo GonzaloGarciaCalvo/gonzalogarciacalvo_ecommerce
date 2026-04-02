@@ -1,28 +1,27 @@
-import { useContext, useState } from "react";
-import { contextoCarrito } from "../components/CartContext";
-import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
-import { Link } from "react-router-dom";
-import { addDoc, collection, serverTimestamp } from "firebase/firestore";
-import Form from "../components/Form";
-import validator from "validator";
-import Container from "react-bootstrap/Container";
-import { db } from "../services/Firebase";
-import CartItem from "../components/CartItem";
+import { useContext, useState } from "react"
+import { contextoCarrito } from "../components/CartContext"
+import Button from "react-bootstrap/Button"
+import { Link } from "react-router-dom"
+import { addDoc, collection, serverTimestamp } from "firebase/firestore"
+import Form from "../components/Form"
+import validator from "validator"
+import Container from "react-bootstrap/Container"
+import { db } from "../services/Firebase"
+import CartItem from "../components/CartItem"
 
 const Cart = () => {
-  const { carrito, total, clear, removeItem } = useContext(contextoCarrito);
-  const [nombre, setNombre] = useState("");
-  const [telefono, setTelefono] = useState("");
-  const [email, setEmail] = useState("");
-  const [compraEfectuada, setCompraEfectuada] = useState(false);
-  const [idFirebase, setIdFirebase] = useState("");
+  const { carrito, total, clear, removeItem } = useContext(contextoCarrito)
+  const [nombre, setNombre] = useState("")
+  const [telefono, setTelefono] = useState("")
+  const [email, setEmail] = useState("")
+  const [compraEfectuada, setCompraEfectuada] = useState(false)
+  const [idFirebase, setIdFirebase] = useState("")
 
-  const validaNombre = validator.isAlpha(nombre, "es-ES", { ignore: " " });
-  const validaTelefono = validator.isNumeric(telefono);
-  const validaEmail = validator.isEmail(email);
+  const validaNombre = validator.isAlpha(nombre, "es-ES", { ignore: " " })
+  const validaTelefono = validator.isNumeric(telefono)
+  const validaEmail = validator.isEmail(email)
   const handleClick = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     if (validaNombre & validaTelefono & validaEmail) {
       const orden = {
         buyer: {
@@ -33,14 +32,14 @@ const Cart = () => {
         items: carrito,
         date: serverTimestamp(),
         total: total,
-      };
-      const ordenesCollection = collection(db, "ordenes");
-      const pedido = addDoc(ordenesCollection, orden);
-      pedido.then((res) => setIdFirebase(res.id));
-      setCompraEfectuada(true);
-      clear();
+      }
+      const ordenesCollection = collection(db, "ordenes")
+      const pedido = addDoc(ordenesCollection, orden)
+      pedido.then((res) => setIdFirebase(res.id))
+      setCompraEfectuada(true)
+      clear()
     }
-  };
+  }
 
   return (
     <Container as="main">
@@ -82,7 +81,7 @@ const Cart = () => {
       ) : (
         <div className="d-flex flex-column align-items-center">
           <h2 className="pb-4 fs-4">No tenés productos en el carrito</h2>
-          <Button as={Link} to={`/`} variant="secondary">
+          <Button as={Link} to={"/"} variant="secondary">
             Ir a comprar
           </Button>
         </div>
@@ -99,7 +98,7 @@ const Cart = () => {
         ""
       )}
     </Container>
-  );
-};
+  )
+}
 
-export default Cart;
+export default Cart

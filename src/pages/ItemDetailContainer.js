@@ -1,12 +1,12 @@
-import Container from "react-bootstrap/Container";
-import ItemDetail from "../components/ItemDetail";
-import { useParams } from "react-router-dom";
-import Spinner from "react-bootstrap/Spinner";
-import { useGetItem } from "../hooks/useGetItem";
+import Container from "react-bootstrap/Container"
+import ItemDetail from "../components/ItemDetail"
+import { useParams } from "react-router-dom"
+import Spinner from "react-bootstrap/Spinner"
+import { useGetItem } from "../hooks/useGetItem"
 
-const ItemDetailContainer = (props) => {
-  const { id } = useParams();
-  const { loading, producto } = useGetItem(id);
+const ItemDetailContainer = () => {
+  const { id } = useParams()
+  const { loading, producto } = useGetItem(id)
 
   if (loading) {
     return (
@@ -21,7 +21,7 @@ const ItemDetailContainer = (props) => {
         />
         <p className="ms-4 mt-1">Cargando...</p>
       </Container>
-    );
+    )
   }
 
   return (
@@ -32,6 +32,6 @@ const ItemDetailContainer = (props) => {
     >
       <ItemDetail producto={producto} />
     </Container>
-  );
-};
-export default ItemDetailContainer;
+  )
+}
+export default ItemDetailContainer

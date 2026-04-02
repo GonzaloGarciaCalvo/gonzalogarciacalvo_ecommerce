@@ -1,4 +1,4 @@
-import { Button } from "react-bootstrap";
+import { Button } from "react-bootstrap"
 
 const Form = ({
   setearNombre,
@@ -6,7 +6,6 @@ const Form = ({
   setearTelefono,
   nombre,
   telefono,
-  enviarDatos,
   handleClick,
   clear,
 }) => {
@@ -58,6 +57,6 @@ const Form = ({
         Cancelar
       </Button>
     </form>
-  );
-};
-export default Form;
+  )
+}
+export default Form
